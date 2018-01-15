@@ -31,15 +31,5 @@ img, embed, video, object {
   font-weight: bold;
 }
 
-// loading animation
-.loading-icon {
-  @include display-flex(center, false);
-  align-items: center;
-  min-height: 80vh;
-}
-
-.divider {
-  margin-top: 5rem;
-}
 
 
