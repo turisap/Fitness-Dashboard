@@ -1,0 +1,529 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the FiltersForm component properly 1`] = `
+<div
+  id="filterForm"
+>
+  <Input
+    className="form-control form-control-lg filterForm__text-input"
+    onBlur={[Function]}
+    placeholder=""
+    type="text"
+    valueLink={
+      e {
+        "component": FiltersForm {
+          "context": Object {},
+          "filters": Object {
+            "dates": Array [
+              "today",
+              "tomorrow",
+              "this week",
+              "this friday",
+              "this weekend",
+              "next week",
+              "this month",
+            ],
+            "prices": Array [
+              "all prices",
+              "paid",
+              "free",
+            ],
+            "types": Array [
+              "class",
+              "seminar",
+              "seminar",
+              "expo",
+              "party",
+              "conference",
+              "networking",
+              "rally",
+              "game",
+              "retreat",
+              "gala",
+            ],
+          },
+          "links": Object {
+            "location": [Circular],
+          },
+          "props": Object {
+            "categories": Array [
+              "the first category",
+              "the second one",
+            ],
+            "getCategories": [Function],
+            "handleClick": [Function],
+            "setCategory": [Function],
+            "setLocation": [Function],
+            "setPrice": [Function],
+            "setToday": [Function],
+            "setType": [Function],
+            "userData": Object {
+              "authErrors": "",
+              "authenticated": false,
+              "clicked": true,
+              "jwtToken": "",
+              "locality": "",
+              "location": Object {},
+            },
+          },
+          "refs": Object {},
+          "state": Object {
+            "activeTab": Array [
+              false,
+              false,
+              false,
+              false,
+            ],
+            "location": "",
+          },
+          "updater": Updater {
+            "_callbacks": Array [],
+            "_renderer": ReactShallowRenderer {
+              "_context": Object {},
+              "_element": <FiltersForm
+                categories={
+                  Array [
+                    "the first category",
+                    "the second one",
+                  ]
+                }
+                getCategories={[Function]}
+                handleClick={[Function]}
+                setCategory={[Function]}
+                setLocation={[Function]}
+                setPrice={[Function]}
+                setToday={[Function]}
+                setType={[Function]}
+                userData={
+                  Object {
+                    "authErrors": "",
+                    "authenticated": false,
+                    "clicked": true,
+                    "jwtToken": "",
+                    "locality": "",
+                    "location": Object {},
+                  }
+                }
+              />,
+              "_forcedUpdate": false,
+              "_instance": [Circular],
+              "_newState": null,
+              "_rendered": <div
+                id="filterForm"
+              >
+                <Input
+                  className="form-control form-control-lg filterForm__text-input"
+                  onBlur={[Function]}
+                  placeholder=""
+                  type="text"
+                  valueLink={[Circular]}
+                />
+                <div
+                  className="filterForm__filter"
+                >
+                  <div
+                    className="filterForm__group"
+                    onClick={[Function]}
+                  >
+                    Categories
+                  </div>
+                  <div
+                    className="filterForm__slide test"
+                  >
+                    <div
+                      className="filterForm__control control-category"
+                      onClick={[Function]}
+                    />
+                    <div
+                      className="filterForm__control control-category"
+                      onClick={[Function]}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="filterForm__filter"
+                >
+                  <div
+                    className="filterForm__group"
+                    onClick={[Function]}
+                  >
+                    Event Type
+                  </div>
+                  <div
+                    className="filterForm__slide"
+                  >
+                    <div
+                      className="filterForm__control control-type"
+                      onClick={[Function]}
+                    >
+                      class
+                    </div>
+                    <div
+                      className="filterForm__control control-type"
+                      onClick={[Function]}
+                    >
+                      seminar
+                    </div>
+                    <div
+                      className="filterForm__control control-type"
+                      onClick={[Function]}
+                    >
+                      seminar
+                    </div>
+                    <div
+                      className="filterForm__control control-type"
+                      onClick={[Function]}
+                    >
+                      expo
+                    </div>
+                    <div
+                      className="filterForm__control control-type"
+                      onClick={[Function]}
+                    >
+                      party
+                    </div>
+                    <div
+                      className="filterForm__control control-type"
+                      onClick={[Function]}
+                    >
+                      conference
+                    </div>
+                    <div
+                      className="filterForm__control control-type"
+                      onClick={[Function]}
+                    >
+                      networking
+                    </div>
+                    <div
+                      className="filterForm__control control-type"
+                      onClick={[Function]}
+                    >
+                      rally
+                    </div>
+                    <div
+                      className="filterForm__control control-type"
+                      onClick={[Function]}
+                    >
+                      game
+                    </div>
+                    <div
+                      className="filterForm__control control-type"
+                      onClick={[Function]}
+                    >
+                      retreat
+                    </div>
+                    <div
+                      className="filterForm__control control-type"
+                      onClick={[Function]}
+                    >
+                      gala
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="filterForm__filter"
+                >
+                  <div
+                    className="filterFrom__group"
+                    onClick={[Function]}
+                  >
+                    Price
+                  </div>
+                  <div
+                    className="filterForm__slide"
+                  >
+                    <div
+                      className="filterForm__control control-price"
+                      onClick={[Function]}
+                    >
+                      all prices
+                    </div>
+                    <div
+                      className="filterForm__control control-price"
+                      onClick={[Function]}
+                    >
+                      paid
+                    </div>
+                    <div
+                      className="filterForm__control control-price"
+                      onClick={[Function]}
+                    >
+                      free
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="filterForm__filter"
+                >
+                  <div
+                    className="filterForm__group"
+                    onClick={[Function]}
+                  >
+                    Date
+                  </div>
+                  <div
+                    className="filterForm__slide"
+                  >
+                    <div
+                      className="filterForm__control control-time"
+                      onClick={[Function]}
+                    >
+                      Today
+                    </div>
+                    <div
+                      className="filterForm__control control-time"
+                      onClick={[Function]}
+                    >
+                      Tomorrow
+                    </div>
+                    <div
+                      className="filterForm__control control-time"
+                      onClick={[Function]}
+                    >
+                      This Friday
+                    </div>
+                    <div
+                      className="filterForm__control control-time"
+                      onClick={[Function]}
+                    >
+                      This Week
+                    </div>
+                    <div
+                      className="filterForm__control control-time"
+                      onClick={[Function]}
+                    >
+                      This Weekend
+                    </div>
+                    <div
+                      className="filterForm__control control-time"
+                      onClick={[Function]}
+                    >
+                      Next Week
+                    </div>
+                    <div
+                      className="filterForm__control control-time"
+                      onClick={[Function]}
+                    >
+                      This Month
+                    </div>
+                  </div>
+                </div>
+              </div>,
+              "_rendering": false,
+              "_updater": [Circular],
+            },
+          },
+        },
+        "key": "location",
+        "value": "",
+      }
+    }
+  />
+  <div
+    className="filterForm__filter"
+  >
+    <div
+      className="filterForm__group"
+      onClick={[Function]}
+    >
+      Categories
+    </div>
+    <div
+      className="filterForm__slide test"
+    >
+      <div
+        className="filterForm__control control-category"
+        key="0"
+        onClick={[Function]}
+      />
+      <div
+        className="filterForm__control control-category"
+        key="1"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="filterForm__filter"
+  >
+    <div
+      className="filterForm__group"
+      onClick={[Function]}
+    >
+      Event Type
+    </div>
+    <div
+      className="filterForm__slide"
+    >
+      <div
+        className="filterForm__control control-type"
+        key="0"
+        onClick={[Function]}
+      >
+        class
+      </div>
+      <div
+        className="filterForm__control control-type"
+        key="1"
+        onClick={[Function]}
+      >
+        seminar
+      </div>
+      <div
+        className="filterForm__control control-type"
+        key="2"
+        onClick={[Function]}
+      >
+        seminar
+      </div>
+      <div
+        className="filterForm__control control-type"
+        key="3"
+        onClick={[Function]}
+      >
+        expo
+      </div>
+      <div
+        className="filterForm__control control-type"
+        key="4"
+        onClick={[Function]}
+      >
+        party
+      </div>
+      <div
+        className="filterForm__control control-type"
+        key="5"
+        onClick={[Function]}
+      >
+        conference
+      </div>
+      <div
+        className="filterForm__control control-type"
+        key="6"
+        onClick={[Function]}
+      >
+        networking
+      </div>
+      <div
+        className="filterForm__control control-type"
+        key="7"
+        onClick={[Function]}
+      >
+        rally
+      </div>
+      <div
+        className="filterForm__control control-type"
+        key="8"
+        onClick={[Function]}
+      >
+        game
+      </div>
+      <div
+        className="filterForm__control control-type"
+        key="9"
+        onClick={[Function]}
+      >
+        retreat
+      </div>
+      <div
+        className="filterForm__control control-type"
+        key="10"
+        onClick={[Function]}
+      >
+        gala
+      </div>
+    </div>
+  </div>
+  <div
+    className="filterForm__filter"
+  >
+    <div
+      className="filterFrom__group"
+      onClick={[Function]}
+    >
+      Price
+    </div>
+    <div
+      className="filterForm__slide"
+    >
+      <div
+        className="filterForm__control control-price"
+        key="0"
+        onClick={[Function]}
+      >
+        all prices
+      </div>
+      <div
+        className="filterForm__control control-price"
+        key="1"
+        onClick={[Function]}
+      >
+        paid
+      </div>
+      <div
+        className="filterForm__control control-price"
+        key="2"
+        onClick={[Function]}
+      >
+        free
+      </div>
+    </div>
+  </div>
+  <div
+    className="filterForm__filter"
+  >
+    <div
+      className="filterForm__group"
+      onClick={[Function]}
+    >
+      Date
+    </div>
+    <div
+      className="filterForm__slide"
+    >
+      <div
+        className="filterForm__control control-time"
+        onClick={[Function]}
+      >
+        Today
+      </div>
+      <div
+        className="filterForm__control control-time"
+        onClick={[Function]}
+      >
+        Tomorrow
+      </div>
+      <div
+        className="filterForm__control control-time"
+        onClick={[Function]}
+      >
+        This Friday
+      </div>
+      <div
+        className="filterForm__control control-time"
+        onClick={[Function]}
+      >
+        This Week
+      </div>
+      <div
+        className="filterForm__control control-time"
+        onClick={[Function]}
+      >
+        This Weekend
+      </div>
+      <div
+        className="filterForm__control control-time"
+        onClick={[Function]}
+      >
+        Next Week
+      </div>
+      <div
+        className="filterForm__control control-time"
+        onClick={[Function]}
+      >
+        This Month
+      </div>
+    </div>
+  </div>
+</div>
+`;

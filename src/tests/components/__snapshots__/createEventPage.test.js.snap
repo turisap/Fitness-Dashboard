@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the create event page properly 1`] = `
+<div
+  className="create-event-container"
+>
+  <form
+    className="create-event__form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="create-event__fieldset"
+    >
+      <label
+        htmlFor="title"
+      >
+        Event Title
+      </label>
+      <Input
+        disabled={false}
+        id="title"
+        name="title"
+        onChange={[Function]}
+        prefixCls="ant-input"
+        type="text"
+      />
+    </div>
+    <div
+      className="create-event__fieldset"
+    >
+      <label
+        htmlFor="location"
+      >
+        Location
+      </label>
+      <Input
+        disabled={false}
+        id="location"
+        name="location"
+        onChange={[Function]}
+        prefixCls="ant-input"
+        type="text"
+      />
+    </div>
+    <div
+      className="create-event__fieldset create-event__fieldset--pickers"
+    >
+      <div
+        className="create-event__picker"
+      >
+        <label
+          htmlFor="start-date"
+        >
+          Start Date
+        </label>
+        <DateTimeSet
+          context="today"
+          defaultDate={"1970-01-01T00:00:00.000Z"}
+          defaultTime={"1970-01-01T00:00:00.000Z"}
+          id="startDate"
+          name="start-date"
+          onChange={[Function]}
+          type="text"
+        />
+      </div>
+      <div
+        className="create-event__picker"
+      >
+        <label
+          htmlFor="start-date"
+        >
+          End Date
+        </label>
+        <DateTimeSet
+          context="today"
+          defaultDate={"1970-01-01T00:00:00.000Z"}
+          defaultTime={"1970-01-01T00:00:00.000Z"}
+          name="end-date"
+          onChange={[Function]}
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      className="create-event__fieldset"
+    >
+      <FileUpload
+        id="picture"
+        name="picture"
+        onChange={[Function]}
+      />
+    </div>
+    <div
+      className="create-event__fieldset"
+    >
+      <TextArea
+        id="description"
+        name="description"
+        onChange={[Function]}
+        prefixCls="ant-input"
+      />
+    </div>
+    <div
+      className="create-event__fieldset"
+    >
+      <label
+        htmlFor="title"
+      >
+        Organizer Name
+      </label>
+      <Input
+        disabled={false}
+        id="organizerName"
+        name="organizer_name"
+        onChange={[Function]}
+        prefixCls="ant-input"
+        type="text"
+      />
+    </div>
+    <div
+      className="create-event__fieldset"
+    >
+      <button
+        className="btn btn-default create-event__button"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+`;

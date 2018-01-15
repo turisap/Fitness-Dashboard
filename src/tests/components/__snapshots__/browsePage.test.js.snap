@@ -1,0 +1,238 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the browse page properly 1`] = `
+<div
+  className="container-fluid browse-page"
+>
+  <div
+    className="browse-page__filter-form"
+  >
+    <Connect(FiltersForm) />
+  </div>
+  <div
+    className="browse-page__events"
+  >
+    <div
+      className="filter-fix"
+    />
+    <div
+      className="browse--page__events-container"
+    >
+      <CSSTransitionGroup
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnter={false}
+        transitionLeave={false}
+        transitionName="mount-animation"
+      >
+        <Event
+          event={
+            Object {
+              "capacity": 412000,
+              "capacity_is_custom": true,
+              "category_id": "103",
+              "changed": "2018-01-07T03:12:03Z",
+              "created": "2016-05-24T05:15:02Z",
+              "currency": "USD",
+              "description": Object {
+                "html": "<P STYLE=\\"text-align: center;\\"><IMG ALT=\\"\\" SRC=\\"https://cdn.evbuc.com/eventlogos/152768532/sat2.jpg\\"></P>",
+                "text": null,
+              },
+              "end": Object {
+                "local": "2018-04-08T03:00:00",
+                "timezone": "America/Chicago",
+                "utc": "2018-04-08T08:00:00Z",
+              },
+              "format_id": "11",
+              "hide_end_date": false,
+              "hide_start_date": false,
+              "id": "25664286572",
+              "is_free": true,
+              "is_locked": false,
+              "is_reserved_seating": false,
+              "is_series": false,
+              "is_series_parent": false,
+              "listed": true,
+              "locale": "en_US",
+              "logo": Object {
+                "aspect_ratio": "2",
+                "crop_mask": Object {
+                  "height": 480,
+                  "top_left": Object {
+                    "x": 0,
+                    "y": 77,
+                  },
+                  "width": 960,
+                },
+                "edge_color": "#3f1614",
+                "edge_color_set": true,
+                "id": "39195996",
+                "original": Object {
+                  "height": 960,
+                  "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F39195996%2F153837911724%2F1%2Foriginal.jpg?s=82806a6ca0cb89ca60cb40225ce7db02",
+                  "width": 960,
+                },
+                "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F39195996%2F153837911724%2F1%2Foriginal.jpg?h=200&w=450&rect=0%2C77%2C960%2C480&s=90876175696ee174f46f504f2492f072",
+              },
+              "logo_id": "39195996",
+              "name": Object {
+                "html": "Privacy Saturdays FREE WITH RSVP BEFORE 11:+ OPEN BAR Call 281.753.1498 to reserve a table",
+                "text": "Privacy Saturdays FREE WITH RSVP BEFORE 11:+ OPEN BAR Call 281.753.1498 to reserve a table",
+              },
+              "online_event": false,
+              "organizer_id": "8489614200",
+              "privacy_setting": "unlocked",
+              "resource_uri": "https://www.eventbriteapi.com/v3/events/25664286572/",
+              "shareable": true,
+              "source": "create_2.0",
+              "start": Object {
+                "local": "2018-01-06T20:00:00",
+                "timezone": "America/Chicago",
+                "utc": "2018-01-07T02:00:00Z",
+              },
+              "status": "started",
+              "subcategory_id": "3018",
+              "tx_time_limit": 480,
+              "url": "https://www.eventbrite.com/e/privacy-saturdays-free-with-rsvp-before-11-open-bar-call-2817531498-to-reserve-a-table-tickets-25664286572?aff=ebapi",
+              "venue_id": "22593918",
+              "version": "3.0.0",
+            }
+          }
+          key="25664286572"
+        />
+        <Event
+          event={
+            Object {
+              "capacity": 142000,
+              "capacity_is_custom": true,
+              "category_id": "105",
+              "changed": "2018-01-07T15:27:20Z",
+              "created": "2017-09-01T14:56:43Z",
+              "currency": "USD",
+              "description": Object {
+                "html": "<P>The Winter Antiques Show is the leading art, antiques and design fair in America, featuring 70 of the world's top experts in the fine and decorative arts. Now in its 64th year, the Show highlights an eclectic mix of works dating from ancient times through the present day. <SPAN>Each object exhibited at the Winter Antiques Show is vetted for authenticity, date and condition by a committee of 150 experts from the United States and Europe. Strict vetting regulations ensure that buyers can purchase with confidence.</SPAN></P>
+<P><SPAN> </SPAN></P>
+<P><SPAN><IMG ALT=\\"Winter Antiques Show\\" SRC=\\"https://cdn.evbuc.com/eventlogos/17590793/was2018eventbritefeaturedimage.png\\"></SPAN></P>
+<P><BR></P>
+<P>The Show’s 2018 loan exhibition highlights the <STRONG>Virginia Museum of Fine Arts</STRONG> in Richmond, Virginia. <EM>Collecting for the Commonwealth/Preserving for the Nation: Celebrating a Century of Art Patronage, 1919-2018 </EM>features exceptional objects made by Tiffany, Lalique, Jean Schlumberger and Paul Storr, as well as important paintings by Robert Henri, George Stubbs, John Singer Sargent, Berthe Morisot, Willem de Kooning, Eastman Johnson, Childe Hassam, Max Pechstein, Vincent van Gogh and Beauford Delaney. </P>
+<P><SPAN>All net proceeds from the Show benefit </SPAN><STRONG>East Side House Settlement</STRONG><SPAN>, </SPAN><SPAN>which works with schools, community centers and other partners to bring quality education and resources to residents of the South Bronx and Northern Manhattan.</SPAN><SPAN> </SPAN><SPAN>Recognizing education as the key to economic and civic opportunity, East Side House helps approximately </SPAN><SPAN>10,000 individuals </SPAN><SPAN>improve their lives each year with programs ranging from basic literacy to specialized technology training. </SPAN><SPAN>East Side House Settlement established the Winter Antiques Show in 1955, and celebrated 125 years in 2016. </SPAN><SPAN><SPAN><SPAN><SPAN>No part of sales made by exhibitors is received by East Side House.</SPAN></SPAN></SPAN></SPAN></P>
+<P><BR></P>
+<HR>
+<P><BR></P>
+<P><STRONG>JANUARY 19-28, 2018</STRONG></P>
+<P><STRONG>OPEN DAILY </STRONG>12 PM–8 PM</P>
+<P><STRONG>SUNDAYS &amp; THURSDAY</STRONG> 12 PM–6 PM</P>
+<P><STRONG>TUESDAY </STRONG>12 PM–4:30 PM</P>
+<P><STRONG>OPENING NIGHT PARTY </STRONG><SPAN>January 18, 2018*</SPAN></P>
+<P><SPAN>*Please visit <STRONG>winterantiquesshow.com/visit</STRONG> to purchase tickets for the Opening Night Party</SPAN></P>
+<P><BR></P>
+<HR>
+<P><BR></P>
+<P><STRONG>Restaurants</STRONG></P>
+<P>There is a cafe on the Show floor catered by Canard.</P>
+<P><STRONG>Wheelchair Access</STRONG></P>
+<P>Wheelchair access is via the 66th Street entrance.</P>
+<P><STRONG>Baby Strollers</STRONG></P>
+<P>Because of large crowds at the Show on the weekends, baby strollers are not permitted on weekends. This regulation protects the child's safety. </P>
+<P><STRONG>Checked Bags</STRONG></P>
+<P>For security reasons, the public is required to check all bags, backpacks, large purses, shopping bags, briefcases, tote bags, and any other item deemed too large by Security.</P>
+<P><BR></P>
+<HR>
+<P>Banner Image: Wei Ligang, <EM>Peacock: Emerald</EM> (detail), 2016. Courtesy of Michael Goedhuis.</P>",
+                "text": "The Winter Antiques Show is the leading art, antiques and design fair in America, featuring 70 of the world's top experts in the fine and decorative arts. Now in its 64th year, the Show highlights an eclectic mix of works dating from ancient times through the present day. Each object exhibited at the Winter Antiques Show is vetted for authenticity, date and condition by a committee of 150 experts from the United States and Europe. Strict vetting regulations ensure that buyers can purchase with confidence.
+ 
+
+
+The Show’s 2018 loan exhibition highlights the Virginia Museum of Fine Arts in Richmond, Virginia. Collecting for the Commonwealth/Preserving for the Nation: Celebrating a Century of Art Patronage, 1919-2018 features exceptional objects made by Tiffany, Lalique, Jean Schlumberger and Paul Storr, as well as important paintings by Robert Henri, George Stubbs, John Singer Sargent, Berthe Morisot, Willem de Kooning, Eastman Johnson, Childe Hassam, Max Pechstein, Vincent van Gogh and Beauford Delaney. 
+All net proceeds from the Show benefit East Side House Settlement, which works with schools, community centers and other partners to bring quality education and resources to residents of the South Bronx and Northern Manhattan. Recognizing education as the key to economic and civic opportunity, East Side House helps approximately 10,000 individuals improve their lives each year with programs ranging from basic literacy to specialized technology training. East Side House Settlement established the Winter Antiques Show in 1955, and celebrated 125 years in 2016. No part of sales made by exhibitors is received by East Side House.
+
+
+
+JANUARY 19-28, 2018
+OPEN DAILY 12 PM–8 PM
+SUNDAYS & THURSDAY 12 PM–6 PM
+TUESDAY 12 PM–4:30 PM
+OPENING NIGHT PARTY January 18, 2018*
+*Please visit winterantiquesshow.com/visit to purchase tickets for the Opening Night Party
+
+
+
+Restaurants
+There is a cafe on the Show floor catered by Canard.
+Wheelchair Access
+Wheelchair access is via the 66th Street entrance.
+Baby Strollers
+Because of large crowds at the Show on the weekends, baby strollers are not permitted on weekends. This regulation protects the child's safety. 
+Checked Bags
+For security reasons, the public is required to check all bags, backpacks, large purses, shopping bags, briefcases, tote bags, and any other item deemed too large by Security.
+
+
+Banner Image: Wei Ligang, Peacock: Emerald (detail), 2016. Courtesy of Michael Goedhuis.",
+              },
+              "end": Object {
+                "local": "2018-01-28T18:00:00",
+                "timezone": "America/New_York",
+                "utc": "2018-01-28T23:00:00Z",
+              },
+              "format_id": "5",
+              "hide_end_date": false,
+              "hide_start_date": false,
+              "id": "37537180718",
+              "is_free": false,
+              "is_locked": false,
+              "is_reserved_seating": false,
+              "is_series": false,
+              "is_series_parent": false,
+              "listed": true,
+              "locale": "en_US",
+              "logo": Object {
+                "aspect_ratio": "2",
+                "crop_mask": Object {
+                  "height": 1080,
+                  "top_left": Object {
+                    "x": 0,
+                    "y": 0,
+                  },
+                  "width": 2160,
+                },
+                "edge_color": null,
+                "edge_color_set": true,
+                "id": "34885380",
+                "original": Object {
+                  "height": 1080,
+                  "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F34885380%2F17713928551%2F1%2Foriginal.jpg?s=eedc2333a6b61da9d22b271c20bf2e25",
+                  "width": 2160,
+                },
+                "url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F34885380%2F17713928551%2F1%2Foriginal.jpg?h=200&w=450&rect=0%2C0%2C2160%2C1080&s=74d8f144f83f1f9678e7820aa3daa307",
+              },
+              "logo_id": "34885380",
+              "name": Object {
+                "html": "2018 Winter Antiques Show • January 19-28, 2018",
+                "text": "2018 Winter Antiques Show • January 19-28, 2018",
+              },
+              "online_event": false,
+              "organizer_id": "1302037909",
+              "privacy_setting": "unlocked",
+              "resource_uri": "https://www.eventbriteapi.com/v3/events/37537180718/",
+              "shareable": true,
+              "source": "create_2.0",
+              "start": Object {
+                "local": "2018-01-19T12:00:00",
+                "timezone": "America/New_York",
+                "utc": "2018-01-19T17:00:00Z",
+              },
+              "status": "live",
+              "subcategory_id": "5008",
+              "tx_time_limit": 480,
+              "url": "https://www.eventbrite.com/e/2018-winter-antiques-show-january-19-28-2018-tickets-37537180718?aff=ebapi",
+              "venue_id": "11479094",
+              "version": "3.0.0",
+            }
+          }
+          key="37537180718"
+        />
+      </CSSTransitionGroup>
+    </div>
+  </div>
+</div>
+`;

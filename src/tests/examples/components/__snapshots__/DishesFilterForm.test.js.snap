@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render dishes filter component 1`] = `
+<div
+  className="dishes__filtersContainer"
+>
+  <input
+    className="form-control dishes___textDishFilter"
+    onKeyDown={[Function]}
+    placeholder="Type what you wish"
+    type="text"
+  />
+  <div
+    className="dishes__textFiltersContainer"
+  >
+    <a
+      className="dishes--activeCategory dishes__text-filter"
+      key="0"
+      onClick={[Function]}
+    >
+      PIZZA
+    </a>
+    <a
+      className="dishes__text-filter"
+      key="1"
+      onClick={[Function]}
+    >
+      PASTA
+    </a>
+    <a
+      className="dishes__text-filter"
+      key="2"
+      onClick={[Function]}
+    >
+      DESSERTS
+    </a>
+  </div>
+</div>
+`;

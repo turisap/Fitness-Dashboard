@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Filter component properly 1`] = `
+<div
+  className="filter-bar__filter-element"
+>
+  <span
+    className="filter-bar__remove"
+  >
+    x
+  </span>
+</div>
+`;

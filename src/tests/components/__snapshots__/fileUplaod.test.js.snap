@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the file upload component properly 1`] = `
+<Upload
+  accept=""
+  action="action for file upload"
+  beforeUpload={[Function]}
+  className="avatar-uploader"
+  data={Object {}}
+  disabled={false}
+  listType="picture-card"
+  multiple={false}
+  name="avatar"
+  onChange={[Function]}
+  prefixCls="ant-upload"
+  showUploadList={false}
+  supportServerRender={true}
+  type="select"
+>
+  <div>
+    <Icon
+      type="plus"
+    />
+    <div
+      className="ant-upload-text"
+    >
+      Upload
+    </div>
+  </div>
+</Upload>
+`;

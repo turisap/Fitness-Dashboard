@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the header component properly 1`] = `
+<div>
+  <nav
+    className="navbar navbar-expand-lg navbar-light bg-light navbar-right"
+  >
+    <NavLink
+      activeClassName="active"
+      ariaCurrent="true"
+      className="navbar-brand"
+      to="/"
+    >
+      Revent
+    </NavLink>
+    <button
+      className="navbar-toggler"
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      className="collapse navbar-collapse"
+      id="navbarColor03"
+    >
+      <ul
+        className="navbar-nav"
+      >
+        <li
+          className="nav-item"
+        >
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            className="nav-link"
+            to="/browse"
+          >
+            Browse
+          </NavLink>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            className="nav-link"
+            to="/create"
+          >
+            Create
+          </NavLink>
+        </li>
+        <li
+          className="nav-item"
+          key="1"
+        >
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            className="nav-link"
+            to="/signup"
+          >
+            Sign Up
+          </NavLink>
+        </li>
+        <li
+          className="nav-item"
+          key="2"
+        >
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            className="nav-link"
+            to="/signin"
+          >
+            Sign In
+          </NavLink>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+`;

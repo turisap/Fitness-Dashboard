@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the event component properly 1`] = `
+<div
+  className="event card mb-3"
+>
+  <Link
+    className="event__link"
+    replace={false}
+    to="/event/25664286572"
+  >
+    <div
+      className="event__picture-container card-body"
+    >
+      <img
+        className="event__picture"
+        src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F39195996%2F153837911724%2F1%2Foriginal.jpg?h=200&w=450&rect=0%2C77%2C960%2C480&s=90876175696ee174f46f504f2492f072"
+      />
+      <div
+        className="event__price-type"
+      >
+        FREE
+      </div>
+    </div>
+    <div
+      className="event__info-container card-body"
+    >
+      <div
+        className="event__date"
+      >
+        2018-01-06T20:00:00
+      </div>
+      <div
+        className="event__title"
+      >
+        Privacy Saturdays FREE WITH RSVP BEFORE 11:+ OPEN BAR Call 281.753.1498 to reserve a table
+      </div>
+      <div
+        className="event__description"
+      />
+    </div>
+    <div
+      className="event__footer card-footer"
+    >
+      <div
+        className="event__tags"
+      >
+        America/Chicago
+      </div>
+      <div
+        className="event__save"
+      />
+    </div>
+  </Link>
+</div>
+`;

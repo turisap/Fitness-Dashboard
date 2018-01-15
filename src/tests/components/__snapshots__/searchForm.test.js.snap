@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the searchForm component properly 1`] = `
+<div
+  className="search-form"
+>
+  <input
+    className="search-form__text form-control"
+    onChange={[Function]}
+    type="text"
+  />
+  <button
+    className="btn btn-default"
+    onClick={[Function]}
+  >
+    SEARCH
+  </button>
+</div>
+`;

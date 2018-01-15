@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render EventPage properly 1`] = `
+<div
+  className="event-page__background"
+>
+  <div
+    className="event-page__info"
+  >
+    <div
+      className="event-page__header"
+    >
+      <div
+        className="event-page__picture-holder"
+      >
+        <img
+          src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F39195996%2F153837911724%2F1%2Foriginal.jpg?h=200&w=450&rect=0%2C77%2C960%2C480&s=90876175696ee174f46f504f2492f072"
+        />
+      </div>
+      <div
+        className="event-page__basic-info"
+      >
+        <div
+          className="event-page__start"
+        >
+          Jan 6th
+        </div>
+        <div
+          className="event-page__item-name"
+        >
+          Privacy Saturdays FREE WITH RSVP BEFORE 11:+ OPEN BAR Call 281.753.1498 to reserve a table
+        </div>
+        <div
+          className="event__price-types"
+        >
+          FREE
+        </div>
+      </div>
+    </div>
+    <hr
+      className="divider"
+    />
+    <div
+      className="event-page__body"
+    >
+      <div
+        className="event-page__description"
+      >
+        <span>
+          Description: 
+        </span>
+      </div>
+      <div
+        className="event-page__venue"
+      >
+        <div
+          className="event-page__venue-element"
+        />
+        <div
+          className="event-page__venue-element"
+        />
+        <div
+          className="event-page__venue-element"
+        />
+        <div
+          className="event-page__venue-element"
+        />
+        <div
+          className="event-page__venue-element"
+        >
+          <p>
+            Utopia
+          </p>
+        </div>
+        <div
+          className="event--page__date"
+        >
+          06
+           - 
+          08 Apr
+        </div>
+      </div>
+    </div>
+    <div
+      className="event-page__map"
+    >
+      <withScriptjs(withGoogleMap(Component))
+        containerElement={
+          <div
+            style={
+              Object {
+                "height": "400px",
+              }
+            }
+          />
+        }
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDw5fwsSljNsyfchlULrBM4g984oGq8onY&v=3.exp&libraries=geometry,drawing,places"
+        isMarkerShown={true}
+        latitude="36.1798781"
+        loadingElement={
+          <div
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
+          />
+        }
+        longitude="-115.1337015"
+        mapElement={
+          <div
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
+          />
+        }
+      />
+    </div>
+  </div>
+</div>
+`;

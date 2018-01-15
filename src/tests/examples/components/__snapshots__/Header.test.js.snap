@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header properly 1`] = `
+<div>
+  <nav
+    className="navbar navbar-expand-lg navbar-light bg-light navbar-right"
+  >
+    <NavLink
+      activeClassName="active"
+      ariaCurrent="true"
+      className="navbar-brand"
+      to="/"
+    >
+      Caldira
+    </NavLink>
+    <div
+      className="collapse navbar-collapse"
+      id="navbarColor03"
+    >
+      <ul
+        className="navbar-nav"
+      >
+        <li
+          className="nav-item"
+        >
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            className="nav-link"
+            to="/"
+          >
+            Home
+          </NavLink>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            className="nav-link"
+            to="/dishes"
+          >
+            Menu
+          </NavLink>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+`;

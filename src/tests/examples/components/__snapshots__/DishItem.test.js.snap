@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Dish item component 1`] = `
+<div
+  className="dishItem__content"
+>
+  <div
+    className="dishItem__cropper"
+  >
+    <img
+      className="dishItem__img"
+    />
+  </div>
+  <h4
+    className="dishItem__title"
+  >
+    Al Taglio
+  </h4>
+  <p>
+    <span
+      className="lead"
+    >
+      Price:  
+    </span>
+    6.5
+  </p>
+  <p
+    className="dishItem__description"
+  >
+    test description
+  </p>
+  <p
+    className="dishItem__amount"
+  >
+    <span
+      className="lead"
+    >
+      Amount:  
+    </span>
+    1
+  </p>
+  <div
+    className="dishItem__buttonHolder"
+  >
+    <button
+      className="dishitem__removeone btn btn-primary"
+      onClick={[Function]}
+    >
+      -
+    </button>
+    <button
+      className="dishitem__removeall btn btn-primary"
+      onClick={[Function]}
+    >
+      Remove All
+    </button>
+    <button
+      className="dishitem__removeone btn btn-primary"
+      onClick={[Function]}
+    >
+      +
+    </button>
+  </div>
+</div>
+`;

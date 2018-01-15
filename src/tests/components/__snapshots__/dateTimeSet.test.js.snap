@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the DateTimeSet component properly 1`] = `
+<div
+  className="date-time-set"
+>
+  <PickerWrapper
+    defaultValue={"1970-01-01T00:00:00.000Z"}
+    disabledDate={[Function]}
+    format="YYYY-MM-DD"
+    inputPrefixCls="ant-input"
+    locale={Object {}}
+    onChange={[Function]}
+    onOk={[Function]}
+    onOpenChange={[Function]}
+    popupStyle={Object {}}
+    prefixCls="ant-calendar"
+    transitionName="slide-up"
+  />
+  <TimePicker
+    align={
+      Object {
+        "offset": Array [
+          0,
+          -2,
+        ],
+      }
+    }
+    defaultValue={"1970-01-01T00:00:00.000Z"}
+    disabled={false}
+    focusOnOpen={true}
+    format="HH:mm"
+    hideDisabledOptions={false}
+    placement="bottomLeft"
+    prefixCls="ant-time-picker"
+    transitionName="slide-up"
+  />
+</div>
+`;

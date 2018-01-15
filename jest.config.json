@@ -1,0 +1,11 @@
+{
+  "setupFiles" : ["raf/polyfill", "<rootDir>/src/tests/setupTest.js"],
+  "snapshotSerializers" : ["enzyme-to-json/serializer"],
+  "testPathIgnorePatterns" : ["<rootDir>/node_modules/", "<rootDir>/src/tests/old/"],
+  "setupTestFrameworkScriptFile": "./src/tests/__mocks__/localStorage.js",
+  "moduleNameMapper": {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+    "<rootDir>/src/tests/__mocks__/fileMock.js",
+    "\\.(css|less)$": ".src/tests/__mocks__/styleMock.js"
+  }
+}
