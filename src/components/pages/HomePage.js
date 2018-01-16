@@ -6,7 +6,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 
 import ENV from '../../../ENV';
-import {getAccessToken} from '../../actions/user';
+import {getAccessToken, getAthlete} from '../../actions/user';
 
 
 class HomePage extends React.Component {
@@ -15,7 +15,7 @@ class HomePage extends React.Component {
     /**
      * Authorization in Strava application on component mount
      * Gets authorization code and if it's already present
-     * makes another request to get an access_token
+     * Makes another request to get a private access_token
      */
     componentDidMount() {
         const params = new URLSearchParams(this.props.location.search);
@@ -32,6 +32,15 @@ class HomePage extends React.Component {
     }
 
 
+    componentDidUpdate() {
+        if(this.props.access_token) {
+            this.props.getAthlete();
+        }
+    }
+
+
+
+
     render() {
         return(
             <h1>HomePage Placeholder</h1>
@@ -39,8 +48,15 @@ class HomePage extends React.Component {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    getAccessToken : code => dispatch(getAccessToken(code))
+const mapStateToProps = state => ({
+    access_token : state.userData.access_token
 });
 
-export default connect(undefined, mapDispatchToProps)(HomePage);
+
+const mapDispatchToProps = dispatch => ({
+    getAccessToken : code => dispatch(getAccessToken(code)),
+    getAthlete     : () => dispatch(getAthlete())
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
