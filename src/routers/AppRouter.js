@@ -2,18 +2,17 @@
  * Created by HP on 29-Nov-17.
  */
 import {BrowserRouter,Router, Route, Switch} from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
 import React from 'react';
+
+import HomePage from '../components/pages/HomePage';
 
 const AppRouter = () => (
     <BrowserRouter>
         <div>
-            <Header />
             <Switch>
-                <Route path="/" component={} exact={true}/>
-                <Route path="/browse" component={} />
+                <Route path="/" component={HomePage} exact={true}/>
+                <Route path="/browse" />
             </Switch>
-            <Footer/>
         </div>
     </BrowserRouter>
 );

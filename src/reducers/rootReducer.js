@@ -3,7 +3,7 @@
  */
 import {combineReducers} from 'redux';
 
-
+import ActivitiesReducer from './activitiesReducer';
 
 
 /**
@@ -11,6 +11,7 @@ import {combineReducers} from 'redux';
  * @type {Reducer<S>}
  */
 const rootReducer = combineReducers({
+    activities : ActivitiesReducer
 });
 
 export default rootReducer;
