@@ -6,6 +6,7 @@ import * as actions from '../actions/types';
 const userDataReducerDefaultState = {
     access_token: '',
     athlete     : {},
+    error       : ''
 };
 
 export default (state=userDataReducerDefaultState, action) => {
@@ -21,8 +22,14 @@ export default (state=userDataReducerDefaultState, action) => {
                 ...state,
                 athlete : action.athlete
             };
+            break;
+        case (actions.SET_USER_ERROR):
+            return {
+                ...state,
+                error : action.error
+            };
+            break;
         default:
             return state;
-
     }
 }

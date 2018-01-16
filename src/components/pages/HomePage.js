@@ -6,7 +6,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 
 import ENV from '../../../ENV';
-import {getAccessToken, getAthlete} from '../../actions/user';
+import {getAccessToken, getAthlete, updateAthlete} from '../../actions/user';
 
 
 class HomePage extends React.Component {
@@ -55,7 +55,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     getAccessToken : code => dispatch(getAccessToken(code)),
-    getAthlete     : () => dispatch(getAthlete())
+    getAthlete     : () => dispatch(getAthlete()),
+    updateAthlete  : updates => dispatch(updateAthlete(updates))
 });
 
 

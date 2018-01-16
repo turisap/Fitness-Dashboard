@@ -37,3 +37,20 @@ export const getAthlete = () => dispatch => {
         })
         .catch(err => console.log(err));
 };
+
+
+/**
+ * Updates user's profile based on provided updates object
+ */
+export const updateAthlete = (updates) => dispatch => {
+    let URL = `https://www.strava.com/api/v3/athlete?`;
+    for(let prop in updates) {
+        URL += `${prop}=${updates[prop]}`
+    }
+    return axios.put(URL, null,
+        {headers : {Authorization : `Bearer ${localStorage.getItem('access_token')}`}})
+        .then(resp => {
+            dispatch({type : actions.GET_ATHLETE, athlete : resp.data})
+        })
+        .catch(err => console.log(err))
+};
