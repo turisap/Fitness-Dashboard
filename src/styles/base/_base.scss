@@ -15,21 +15,12 @@ img, embed, video, object {
   max-width: 100%;
 }
 
-// animation for page changes
-.mount-animation-appear {
-  opacity: 0.01;
+.route-wrapper {
+  position: relative;
 }
 
-// animation for page changes
-.mount-animation-appear.mount-animation-appear-active {
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
+.route-wrapper > div {
+  position: absolute;
 }
-
-.error {
-  color : #b20000;
-  font-weight: bold;
-}
-
 
 

@@ -4,9 +4,12 @@
 import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom'
 
 import ENV from '../../../ENV';
 import {getAccessToken, getAthlete, updateAthlete} from '../../actions/user';
+
+
 
 
 class HomePage extends React.Component {
@@ -23,15 +26,19 @@ class HomePage extends React.Component {
         const clientSecret = ENV.stravaAPI.clientSecret;
         const clientId = ENV.stravaAPI.clientID;
 
-        if(!accessCode) {
+        if(!accessCode && !this.props.access_token) {
             window.location.assign(`https://www.strava.com/oauth/authorize?client_id=${clientId}` +
                 `&response_type=code&redirect_uri=${ENV.stravaAPI.redirectURL}&scope=view_private,write`);
-        } else {
+        } else if(!this.props.access_token) {
             this.props.getAccessToken(accessCode);
         }
     }
 
 
+
+    /**
+     * Gets athlete's info if there is an access_token obtained
+     */
     componentDidUpdate() {
         if(this.props.access_token) {
             this.props.getAthlete();
@@ -43,8 +50,8 @@ class HomePage extends React.Component {
 
     render() {
         return(
-            <h1>HomePage Placeholder</h1>
-        )
+            <Link to="/activities"><h1>HomePage Placeholder</h1></Link>
+                )
     }
 }
 
