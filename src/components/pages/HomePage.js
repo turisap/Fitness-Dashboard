@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom'
 
 import ENV from '../../../ENV';
 import {getAccessToken, getAthlete, updateAthlete} from '../../actions/user';
+import {extractPropertiesToShow} from '../../funcs/athlete';
 
 
 
@@ -39,8 +40,8 @@ class HomePage extends React.Component {
     /**
      * Gets athlete's info if there is an access_token obtained
      */
-    componentDidUpdate() {
-        if(this.props.access_token) {
+    componentWillReceiveProps(nextProps) {
+        if(this.props.access_token !== nextProps.access_token) {
             this.props.getAthlete();
         }
     }
@@ -49,6 +50,7 @@ class HomePage extends React.Component {
 
 
     render() {
+        extractPropertiesToShow(this.props.athlete);
         return(
             <Link to="/activities"><h1>HomePage Placeholder</h1></Link>
                 )
@@ -56,7 +58,8 @@ class HomePage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    access_token : state.userData.access_token
+    access_token : state.userData.access_token,
+    athlete      : state.userData.athlete,
 });
 
 

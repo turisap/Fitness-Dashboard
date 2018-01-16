@@ -24,6 +24,10 @@ const AppRouter = () => (
 );
 
 
+/**
+ *
+ * The following code is for router animations
+ */
 function mapStyles(styles) {
     return {
         opacity: styles.opacity,
