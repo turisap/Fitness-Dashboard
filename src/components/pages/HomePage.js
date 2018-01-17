@@ -9,12 +9,12 @@ import {Link} from 'react-router-dom'
 import ENV from '../../../ENV';
 import {getAccessToken, getAthlete, updateAthlete} from '../../actions/user';
 import {extractPropertiesToShow} from '../../funcs/athlete';
+import SideBar from '../SideBar';
 
 
 
 
 class HomePage extends React.Component {
-
 
     /**
      * Authorization in Strava application on component mount
@@ -52,8 +52,10 @@ class HomePage extends React.Component {
     render() {
         extractPropertiesToShow(this.props.athlete);
         return(
-            <Link to="/activities"><h1>HomePage Placeholder</h1></Link>
-                )
+            <div>
+                <Link to="/activities"><h1>HomePage Placeholder</h1></Link>
+            </div>
+        )
     }
 }
 

@@ -9,8 +9,10 @@ import React from 'react';
 import HomePage from '../components/pages/HomePage';
 import ActivitiesPage from '../components/pages/ActivitiesPage';
 
+
 const AppRouter = () => (
-    <BrowserRouter>
+    <div>
+        <BrowserRouter>
             <AnimatedSwitch
                 atEnter={bounceTransition.atEnter}
                 atLeave={bounceTransition.atLeave}
@@ -20,7 +22,8 @@ const AppRouter = () => (
                 <Route path="/" component={HomePage} exact={true}/>
                 <Route path="/activities" component={ActivitiesPage}/>
             </AnimatedSwitch>
-    </BrowserRouter>
+        </BrowserRouter>
+    </div>
 );
 
 
