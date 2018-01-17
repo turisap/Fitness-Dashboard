@@ -8,20 +8,24 @@ import React from 'react';
 
 import HomePage from '../components/pages/HomePage';
 import ActivitiesPage from '../components/pages/ActivitiesPage';
+import NavBar from '../components/NavBar';
 
 
 const AppRouter = () => (
     <div>
         <BrowserRouter>
-            <AnimatedSwitch
-                atEnter={bounceTransition.atEnter}
-                atLeave={bounceTransition.atLeave}
-                atActive={bounceTransition.atActive}
-                mapStyles={mapStyles}
-                className="route-wrapper">
-                <Route path="/" component={HomePage} exact={true}/>
-                <Route path="/activities" component={ActivitiesPage}/>
-            </AnimatedSwitch>
+            <div>
+                <NavBar/>
+                <AnimatedSwitch
+                    atEnter={bounceTransition.atEnter}
+                    atLeave={bounceTransition.atLeave}
+                    atActive={bounceTransition.atActive}
+                    mapStyles={mapStyles}
+                    className="route-wrapper">
+                    <Route path="/" component={HomePage} exact={true}/>
+                    <Route path="/activities" component={ActivitiesPage}/>
+                </AnimatedSwitch>
+            </div>
         </BrowserRouter>
     </div>
 );

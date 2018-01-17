@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom'
 import ENV from '../../../ENV';
 import {getAccessToken, getAthlete, updateAthlete} from '../../actions/user';
 import {extractPropertiesToShow} from '../../funcs/athlete';
-import SideBar from '../SideBar';
+import Element from '../Element';
 
 
 
@@ -50,14 +50,21 @@ class HomePage extends React.Component {
 
 
     render() {
-        extractPropertiesToShow(this.props.athlete);
+        const elements = extractPropertiesToShow(this.props.athlete);
         return(
             <div>
-                <Link to="/activities"><h1>HomePage Placeholder</h1></Link>
+                {elements.map((el, i) =>
+                    <Element
+                        key={i}
+                        title={el.title}
+                        subtitle={el.subtitle}
+                        changeable={el.changeable}/>
+                )}
             </div>
         )
     }
 }
+
 
 const mapStateToProps = state => ({
     access_token : state.userData.access_token,

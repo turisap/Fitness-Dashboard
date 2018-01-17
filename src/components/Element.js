@@ -3,13 +3,14 @@
  */
 import React from 'react';
 import classNames from 'classnames';
+import { Input } from 'semantic-ui-react'
 
 const Element = props => {
     return (
-        <div className={classNames('dashboard-element', {'square' : this.props.square})}>
-            <p>{this.props.title}</p>
-            <p>{this.props.subtitle}</p>
-            {this.props.children}
+        <div className={classNames('dashboard-element', {'square' : props.square})} style={{border: 'red 1px solid'}}>
+            <p>{props.title}</p>
+            <p>{props.subtitle}</p>
+            {props.changeable && <Input loading icon='user' placeholder='Have lost sth?' />}
         </div>
     )
 };
