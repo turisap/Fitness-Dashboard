@@ -10,7 +10,7 @@ const Element = props => {
         <div className={classNames('dashboard-element', {'square' : props.square})} style={{border: 'red 1px solid'}}>
             <p>{props.title}</p>
             <p>{props.subtitle}</p>
-            {props.changeable && <Input loading icon='user' placeholder='Have lost sth?' />}
+            {props.changeable && <Input loading placeholder='Have lost sth?' />}
         </div>
     )
 };
