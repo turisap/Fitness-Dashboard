@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import Validator from '../validators/InputDataValidator';
 import SimpleElement from './SimpleElement';
 import {updateAthlete} from '../actions/user';
-
+import {changedWeight, changingWeight} from '../actions/menuElements';
 
 
 class WeightElement extends React.Component {
@@ -33,7 +33,7 @@ class WeightElement extends React.Component {
                 }
                 return;
             }
-            this.props.updateAthlete({weight: e.target.value});
+            this.props.updateAthlete({weight: e.target.value}, changingWeight, changedWeight);
             this.setState({submissionErrors : []})
         },1000);
     };
@@ -62,7 +62,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    updateAthlete : updates => dispatch(updateAthlete(updates))
+    updateAthlete : (updates, before, after) => dispatch(updateAthlete(updates, before, after))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeightElement);

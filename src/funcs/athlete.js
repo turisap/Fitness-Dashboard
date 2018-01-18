@@ -23,7 +23,7 @@ export const extractPropertiesToShow = athlete => {
                     elements[0].subtitle += athlete[prop];
                     break;
                 case ('weight'):
-                    elements.push({title: `Your weight is ${athlete[prop]} kg`, changeable : true, type : 'weight'});
+                    elements.push({title: `Your weight is ${parseFloat(athlete[prop]).toFixed(2)} kg`, changeable : true, type : 'weight'});
                     break;
                 case ('bikes'):
                     elements.push({title: `Your main bike is ${athlete[prop][0].name}`});
