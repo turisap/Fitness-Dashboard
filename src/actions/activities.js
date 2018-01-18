@@ -17,7 +17,7 @@ export const getActivities = () => dispatch => {
             dispatch({type: actions.GET_ACTIVITIES, activities: resp.data})
         })
         .catch(err => {
-
+            console.log(err);
         })
 };
 
