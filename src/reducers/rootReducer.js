@@ -5,6 +5,7 @@ import {combineReducers} from 'redux';
 
 import ActivitiesReducer from './activitiesReducer';
 import UserDataReducer from './userDataReducer';
+import MenuElementsReducer from './menuElementReducer';
 
 
 /**
@@ -13,7 +14,8 @@ import UserDataReducer from './userDataReducer';
  */
 const rootReducer = combineReducers({
     activities : ActivitiesReducer,
-    userData   : UserDataReducer
+    userData   : UserDataReducer,
+    menuElements : MenuElementsReducer
 });
 
 export default rootReducer;

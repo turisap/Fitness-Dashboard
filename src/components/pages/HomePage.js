@@ -58,6 +58,7 @@ class HomePage extends React.Component {
                         key={i}
                         title={el.title}
                         subtitle={el.subtitle}
+                        type={el.type}
                         changeable={el.changeable}/>
                 )}
             </div>
