@@ -38,6 +38,12 @@ export const extractPropertiesToShow = athlete => {
 };
 
 
+/**
+ * Creates a message for modal basing on weight difference (existing weight and user's input)
+ * @param prevWeight
+ * @param newWeight
+ * @returns {*}
+ */
 export const changingWeightModalMessage = (prevWeight, newWeight) => {
     const diff = (parseFloat(newWeight) - parseFloat(prevWeight)).toFixed(2);
     switch (true) {
