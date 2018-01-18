@@ -9,7 +9,8 @@ import {Link} from 'react-router-dom'
 import ENV from '../../../ENV';
 import {getAccessToken, getAthlete, updateAthlete} from '../../actions/user';
 import {extractPropertiesToShow} from '../../funcs/athlete';
-import Element from '../Element';
+import Element from '../SimpleElement';
+import WeightElement from '../WeightElement';
 
 
 
@@ -54,12 +55,19 @@ class HomePage extends React.Component {
         return(
             <div>
                 {elements.map((el, i) =>
-                    <Element
-                        key={i}
-                        title={el.title}
-                        subtitle={el.subtitle}
-                        type={el.type}
-                        changeable={el.changeable}/>
+                    el.type === 'weight'
+                        ?
+                        <WeightElement
+                            key={i}
+                            title={el.title}
+                            subtitle={el.subtitle}
+                        />
+                        :
+                        <Element
+                            key={i}
+                            title={el.title}
+                            subtitle={el.subtitle}
+                        />
                 )}
             </div>
         )
