@@ -7,8 +7,8 @@ import { Input } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 import Validator from '../validators/InputDataValidator';
-import SimpleElement from './SimpleElement'
-
+import SimpleElement from './SimpleElement';
+import {updateAthlete} from '../actions/user';
 
 
 
@@ -18,7 +18,12 @@ class WeightElement extends React.Component {
         submissionErrors : [],
     };
 
+    /**
+     * Evaluetes user's input and sets errors accordingly
+     * @param e
+     */
     changeMyWeight = e => {
+        e.persist();
         const validWeight =  Validator.validateWeight(e.target.value);
         const errors = this.state.submissionErrors;
         setTimeout(() => {
@@ -28,9 +33,11 @@ class WeightElement extends React.Component {
                 }
                 return;
             }
+            this.props.updateAthlete({weight: e.target.value});
             this.setState({submissionErrors : []})
-        },1000)
+        },1000);
     };
+
 
     render () {
         return (
@@ -42,7 +49,7 @@ class WeightElement extends React.Component {
                     placeholder='Have lost sth?'
                     error={!!this.state.submissionErrors.length}
                 />
-                {this.state.submissionErrors.length > 0 && this.state.submissionErrors.map(err => <p>{err}</p>)}
+                {this.state.submissionErrors.length > 0 && this.state.submissionErrors.map(err => <p key={err}>{err}</p>)}
             </div>
         )
     }
@@ -54,4 +61,8 @@ const mapStateToProps = state => ({
     loadingWeight : state.menuElements.loadingChangingWeight
 });
 
-export default connect(mapStateToProps, undefined)(WeightElement);
+const mapDispatchToProps = dispatch => ({
+    updateAthlete : updates => dispatch(updateAthlete(updates))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeightElement);
