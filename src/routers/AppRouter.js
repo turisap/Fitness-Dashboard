@@ -9,6 +9,7 @@ import React from 'react';
 import HomePage from '../components/pages/HomePage';
 import ActivitiesPage from '../components/pages/ActivitiesPage';
 import NavBar from '../components/NavBar';
+import Modal from '../components/Modal';
 
 
 const AppRouter = () => (
@@ -16,6 +17,7 @@ const AppRouter = () => (
         <BrowserRouter>
             <div>
                 <NavBar/>
+                <Modal/>
                 <AnimatedSwitch
                     atEnter={bounceTransition.atEnter}
                     atLeave={bounceTransition.atLeave}

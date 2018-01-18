@@ -47,7 +47,6 @@ export const updateAthlete = (updates, actionBefore, actionAfter) => dispatch =>
     for(let prop in updates) {
         URL += `${prop}=${updates[prop]}`
     }
-    console.log(actionAfter)
     if (actionBefore instanceof Function) {
         dispatch(actionBefore());
     }

@@ -1,7 +1,9 @@
 // USER DATA RELATED ACTION TYPES
-export const GET_ACCESS_TOKEN = 'GET_ACCESS_TOKEN';
-export const GET_ATHLETE      = 'GET_ATHLETE';
-export const SET_USER_ERROR   = 'SET_USER_ERROR';
-export const UPDATE_ATHLETE   = 'UPDATE_ATHLETE';
-export const CHANGING_WEIGHT    = 'CHANGING_WEIGHT';
-export const CHANGED_WEIGHT    = 'CHANGED_WEIGHT';
+export const GET_ACCESS_TOKEN    = 'GET_ACCESS_TOKEN';
+export const GET_ATHLETE         = 'GET_ATHLETE';
+export const SET_USER_ERROR      = 'SET_USER_ERROR';
+export const UPDATE_ATHLETE      = 'UPDATE_ATHLETE';
+export const CHANGING_WEIGHT     = 'CHANGING_WEIGHT';
+export const CHANGED_WEIGHT      = 'CHANGED_WEIGHT';
+export const SET_MODAL_CONTENT   = 'SET_MODAL_CONTENT';
+export const EMPTY_MODAL_CONTENT = 'EMPTY_MODAL_CONTENT';

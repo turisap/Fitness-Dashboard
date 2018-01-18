@@ -6,13 +6,16 @@
  * Validator for user's input
  */
 export default {
-    validateWeight : weight => {
+    validateWeight : (weight, oldWeight) => {
         const pattern = new RegExp(/^\d*(\.\d*)?$/);
         if (!pattern.test(weight)) {
             return new Error ('Weight should be a number')
         }
         if (parseFloat(weight) < 20) {
             return new Error ('Are you sure you\'ve lost so much?')
+        }
+        if(weight === parseFloat(oldWeight)) {
+            return new Error ('New weight should be different from old')
         }
         return true;
     }

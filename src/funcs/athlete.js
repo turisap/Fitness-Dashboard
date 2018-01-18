@@ -23,7 +23,8 @@ export const extractPropertiesToShow = athlete => {
                     elements[0].subtitle += athlete[prop];
                     break;
                 case ('weight'):
-                    elements.push({title: `Your weight is ${parseFloat(athlete[prop]).toFixed(2)} kg`, changeable : true, type : 'weight'});
+                    const value = parseFloat(athlete[prop]).toFixed(2);
+                    elements.push({title: `Your weight is ${value} kg`, value , type : 'weight'});
                     break;
                 case ('bikes'):
                     elements.push({title: `Your main bike is ${athlete[prop][0].name}`});
@@ -34,4 +35,23 @@ export const extractPropertiesToShow = athlete => {
         }
     }
     return elements;
+};
+
+
+export const changingWeightModalMessage = (prevWeight, newWeight) => {
+    const diff = (parseFloat(newWeight) - parseFloat(prevWeight)).toFixed(2);
+    switch (true) {
+        case (diff < -1):
+            return `Wow! You\'ve done a lot, ${diff} kilos lost. Keep doing!`;
+            break;
+        case ((diff < 0 && diff > -1)):
+            return `You've lost ${diff} kg. Keep doing it and you'll achieve you goals!`;
+            break;
+        case (diff > 0 && diff < 1):
+            return `Ok, that was a nice weekend, you've gained ${diff} kilo. You need to exercise more now.`;
+            break;
+        case(diff > 1):
+            return `Hey, you got ${diff} kilos!! Lock yourself in your flat for 3 days without any food!`;
+        default: return 'TURISAP'
+    }
 };

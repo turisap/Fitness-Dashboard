@@ -9,7 +9,8 @@ import { connect } from 'react-redux';
 import Validator from '../validators/InputDataValidator';
 import SimpleElement from './SimpleElement';
 import {updateAthlete} from '../actions/user';
-import {changedWeight, changingWeight} from '../actions/menuElements';
+import {changedWeight, changingWeight, setModalOff} from '../actions/menuElements';
+import {changingWeightModalMessage} from '../funcs/athlete';
 
 
 class WeightElement extends React.Component {
@@ -24,7 +25,8 @@ class WeightElement extends React.Component {
      */
     changeMyWeight = e => {
         e.persist();
-        const validWeight =  Validator.validateWeight(e.target.value);
+        const newWeight = parseFloat(e.target.value);
+        const validWeight =  Validator.validateWeight(newWeight, this.props.value);
         const errors = this.state.submissionErrors;
         setTimeout(() => {
             if (validWeight instanceof Error) {
@@ -33,9 +35,15 @@ class WeightElement extends React.Component {
                 }
                 return;
             }
-            this.props.updateAthlete({weight: e.target.value}, changingWeight, changedWeight);
+
+            const modalMessage = changingWeightModalMessage(this.props.value, newWeight);
+
+            this.props.updateAthlete({weight: e.target.value}, changingWeight, changedWeight)
+                .then(() => {
+                    this.props.setModalOff(modalMessage);
+                });
             this.setState({submissionErrors : []})
-        },1000);
+        },2000);
     };
 
 
@@ -62,7 +70,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    updateAthlete : (updates, before, after) => dispatch(updateAthlete(updates, before, after))
+    updateAthlete : (updates, before, after) => dispatch(updateAthlete(updates, before, after)),
+    setModalOff : content => dispatch(setModalOff(content))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeightElement);

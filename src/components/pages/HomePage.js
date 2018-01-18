@@ -60,6 +60,7 @@ class HomePage extends React.Component {
                         <WeightElement
                             key={i}
                             title={el.title}
+                            value={el.value}
                             subtitle={el.subtitle}
                         />
                         :

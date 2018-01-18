@@ -55,6 +55,7 @@
     "redux": "^3.7.2",
     "redux-form": "^7.2.0",
     "redux-thunk": "^2.2.0",
+    "rodal": "^1.6.3",
     "sass-loader": "^6.0.6",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.77.2",

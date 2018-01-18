@@ -4,7 +4,8 @@
 import * as actions from '../actions/types';
 
 const menuElementsReducerDefaultState = {
-    loadingChangingWeight: false
+    loadingChangingWeight: false,
+    modalContent : ''
 };
 
 export default (state=menuElementsReducerDefaultState, action) => {
@@ -20,6 +21,19 @@ export default (state=menuElementsReducerDefaultState, action) => {
                 ...state,
                 loadingChangingWeight : false
             };
+            break;
+        case(actions.SET_MODAL_CONTENT):
+            return {
+                ...state,
+                modalContent: action.content
+            };
+            break;
+        case(actions.EMPTY_MODAL_CONTENT):
+            return {
+                ...state,
+                modalContent: ''
+            };
+            break;
         default: return state;
     }
 }
