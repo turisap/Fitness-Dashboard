@@ -12,7 +12,8 @@ import 'rodal/lib/rodal.css';
 
 const store = ConfigureStore();
 
-
+// setting global debug flag to true (for development only)
+window.DEBUG = true;
 
 ReactDOM.render(
                     <Provider store={store}>

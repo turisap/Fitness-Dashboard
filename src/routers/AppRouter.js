@@ -10,6 +10,7 @@ import HomePage from '../components/pages/HomePage';
 import ActivitiesPage from '../components/pages/ActivitiesPage';
 import NavBar from '../components/NavBar';
 import Modal from '../components/Modal';
+import RequireAuth from '../components/auth/RequireAuthHOC';
 
 
 const AppRouter = () => (
@@ -24,8 +25,8 @@ const AppRouter = () => (
                     atActive={bounceTransition.atActive}
                     mapStyles={mapStyles}
                     className="route-wrapper">
-                    <Route path="/" component={HomePage} exact={true}/>
-                    <Route path="/activities" component={ActivitiesPage}/>
+                    <Route path="/" component={RequireAuth(HomePage)} exact={true}/>
+                    <Route path="/activities" component={RequireAuth(ActivitiesPage)}/>
                 </AnimatedSwitch>
             </div>
         </BrowserRouter>
