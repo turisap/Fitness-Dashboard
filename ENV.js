@@ -13,7 +13,8 @@ const ENV = {
         publicAccessToken : 'f6d620252df82826e071a301ea45625b919fb136',
         redirectURL : 'http://localhost:8080',
         activitiesBaseEndPoint : 'https://www.strava.com/api/v3/activities',
-        athleteActivitiesBaseEndPoint : 'https://www.strava.com/api/v3/athlete/activities'
+        athleteActivitiesBaseEndPoint : 'https://www.strava.com/api/v3/athlete/activities',
+        gearBaseEndPoint : 'https://www.strava.com/api/v3/gear/',
     },
     backendServer : {
         rootUrl : ''

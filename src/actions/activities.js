@@ -17,7 +17,7 @@ export const getActivities = () => dispatch => {
             dispatch({type: actions.GET_ACTIVITIES, activities: resp.data})
         })
         .catch(err => {
-            console.log(err);
+            if(window.DEBUG)console.log(err);
         })
 };
 
@@ -37,5 +37,7 @@ export const createActivity = data => dispatch => {
         .then(resp => {
             console.log(resp);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            if(window.DEBUG) console.log(err)
+        });
 };

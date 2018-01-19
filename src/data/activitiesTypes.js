@@ -10,14 +10,8 @@ export default [
     'Run',
     'Swim',
     'Hike',
-    'Walk',
-    'AlpineSki',
-    'BackcountrySki',
+    'AlpineSki ',
     'Canoeing',
-    'Crossfit',
-    'Elliptical',
-    'IceSkate',
-    'InlineSkate',
-    'Kayaking',
+    'IceSkate ',
     'Yoga',
-]
+];

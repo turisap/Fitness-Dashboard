@@ -25,8 +25,8 @@ const AppRouter = () => (
                     atActive={bounceTransition.atActive}
                     mapStyles={mapStyles}
                     className="route-wrapper">
-                    <Route path="/" component={RequireAuth(HomePage)} exact={true}/>
-                    <Route path="/activities" component={RequireAuth(ActivitiesPage)}/>
+                    <Route path="/" component={HomePage} exact={true}/>
+                    <Route path="/activities" component={ActivitiesPage}/>
                 </AnimatedSwitch>
             </div>
         </BrowserRouter>

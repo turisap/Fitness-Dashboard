@@ -4,6 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {getActivities} from '../../actions/activities';
+import Activity from '../Activity';
 
 
 /**
@@ -19,7 +20,7 @@ export class Activities extends React.Component {
 
     render() {
         return (
-            <h1>Activities Placeholder</h1>
+            this.props.activities.map(act => <Activity key={act.id} activity={act}/>)
         )
     }
 }
