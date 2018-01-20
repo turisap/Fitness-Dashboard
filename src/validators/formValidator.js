@@ -79,7 +79,7 @@ FormValidator.prototype.dropErrors = function() {this.errors = {}};
  * @param fieldName
  * @returns {Error}
  */
-FormValidator.shouldContainLetters = function(value, fieldName) {
+FormValidator.prototype.shouldContainLetters = function(value, fieldName) {
     const pattern = new RegExp(/[a-zА-я]+/i);
     if (!pattern.test(value)) {
         checkIfExistsInErrors.call(this, fieldName);
