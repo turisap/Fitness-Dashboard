@@ -47,16 +47,6 @@ export class Activities extends React.Component {
     }
 
 
-    /**
-     * Updates activities list after successful saving of a new activity
-     * @param nextProps
-     */
-    componentWillReceiveProps(nextProps) {
-        if(this.props.newActivitySaved !== nextProps.newActivitySaved){
-            this.props.getActivities();
-        }
-    }
-
 
     /**
      * Shows a modal with add activity form on button click
@@ -138,7 +128,6 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
     activities         : state.activities.usersActivities,
     modalContent       : state.menuElements.modalContent,
-    newActivitySaved   : state.menuElements.newActivitySaved
 });
 
 

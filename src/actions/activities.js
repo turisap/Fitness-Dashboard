@@ -46,7 +46,7 @@ export const createActivity = data => dispatch => {
                 dispatch(emptyModal());
             }
             dispatch(unsetLoadingElement('activityForm'));
-            dispatch({type: actions.FLIP_NEW_ACTIVITY_FLAG})
+            dispatch(getActivities());
         })
         .catch(err => {
             if(window.DEBUG) console.log(err.response.data.errors);
