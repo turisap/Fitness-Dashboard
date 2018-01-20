@@ -6,6 +6,14 @@
  * Validator for user's input
  */
 export default {
+
+    /**
+     * Validates weight input if its integer or floating point, lower threshold
+     * that it's not equal to the old weight
+     * @param weight
+     * @param oldWeight
+     * @returns {*}
+     */
     validateWeight : (weight, oldWeight) => {
         const pattern = new RegExp(/^\d*(\.\d*)?$/);
         if (!pattern.test(weight)) {
@@ -18,5 +26,6 @@ export default {
             return new Error ('New weight should be different from old')
         }
         return true;
-    }
+    },
+
 }

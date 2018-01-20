@@ -12,7 +12,8 @@ import { Button } from 'semantic-ui-react';
 import {getActivities} from '../../actions/activities';
 import Activity from '../Activity';
 import {setModalOff} from '../../actions/menuElements';
-import {getListOfActivities} from '../../funcs/acitvities'
+import {getListOfActivities} from '../../funcs/acitvities';
+import Validator from '../../validators/formValidator';
 
 
 
@@ -70,6 +71,11 @@ export class Activities extends React.Component {
     };
 
 
+    validateForm = () => {
+        const rules = {name : 'isRequired|shouldContainLetter', type : 'numeric|isRequired'};
+        const errors = new Validator(this.state, rules);
+    };
+
 
 
     /**
@@ -78,7 +84,8 @@ export class Activities extends React.Component {
      */
     addActivity = e => {
         e.preventDefault();
-        alert('adding activity')
+        this.validateForm();
+        //alert('adding activity')
     };
 
 
