@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import Validator from '../validators/InputDataValidator';
 import SimpleElement from './SimpleElement';
 import {updateAthlete} from '../actions/user';
-import {changedWeight, changingWeight, setModalOff} from '../actions/menuElements';
+import {setLoadingElement, unsetLoadingElement, setModalOff} from '../actions/menuElements';
 import {changingWeightModalMessage} from '../funcs/athlete';
 
 
@@ -38,7 +38,7 @@ class WeightElement extends React.Component {
 
             const modalMessage = changingWeightModalMessage(this.props.value, newWeight);
 
-            this.props.updateAthlete({weight: e.target.value}, changingWeight, changedWeight)
+            this.props.updateAthlete({weight: e.target.value}, setLoadingElement.bind(null, 'activityForm'), unsetLoadingElement.bind(null, 'activityForm'))
                 .then(() => {
                     this.props.setModalOff(modalMessage);
                 });
@@ -66,7 +66,7 @@ class WeightElement extends React.Component {
 
 
 const mapStateToProps = state => ({
-    loadingWeight : state.menuElements.loadingElements.weight
+    loadingWeight : state.menuElements.loadingElements.activityForm
 });
 
 const mapDispatchToProps = dispatch => ({

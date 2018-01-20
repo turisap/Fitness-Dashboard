@@ -4,25 +4,13 @@
 import * as actions from '../actions/types';
 
 const menuElementsReducerDefaultState = {
-    loadingElements: {activityForm: true},
+    loadingElements: {},
     modalContent : '',
     modalErrors  : ''
 };
 
 export default (state=menuElementsReducerDefaultState, action) => {
     switch(action.type) {
-        case(actions.CHANGING_WEIGHT):
-            return {
-                ...state,
-                loadingElements : {weight : true}
-            };
-            break;
-        case(actions.CHANGED_WEIGHT):
-            return {
-                ...state,
-                loadingElements : {}
-            };
-            break;
         case(actions.SET_MODAL_CONTENT):
             return {
                 ...state,
