@@ -32,7 +32,11 @@ export const getActivities = () => dispatch => {
 export const createActivity = data => dispatch => {
     let URL = ENV.stravaAPI.activitiesBaseEndPoint;
     for (let param in data) {
-        URL += `${param}=${data[param]}&`;
+        if (param === 'Start date') {
+            URL += `start_date_local=${data[param]}&`;
+        } else {
+            URL += `${param}=${data[param]}&`;
+        }
     }
     dispatch(setLoadingElement('activityForm'));
     return axios.post(URL, null, autHeaders)

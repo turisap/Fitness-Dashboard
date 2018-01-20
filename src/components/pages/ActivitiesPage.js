@@ -30,7 +30,7 @@ export class Activities extends React.Component {
         name : '',
         description : '',
         type : '',
-        start_date_local : '',
+        "Start date" : '',
         elapsed_time : 9253,
         errors : [],
     };
@@ -57,7 +57,7 @@ export class Activities extends React.Component {
                 <Input onChange={e => this.setState({name: e.target.value})} placeholder='Name..' />
                 <Input onChange={e => this.setState({description: e.target.value})} placeholder='Description..' />
                 <Dropdown onChange={(e, { value }) => this.setState({type : value.toLowerCase()})} placeholder='Type of activity' options={getListOfActivities()} />
-                <DatePicker onChange={e => this.setState({start_date_local : e.format('YYYY-MM-DDTHH:mm:ss')})} defaultDate={moment()}/>
+                <DatePicker onChange={e => this.setState({"Start date" : e.format('YYYY-MM-DDTHH:mm:ss')})} defaultDate={moment()}/>
                 {this.state.errors}
                 <Button type="submit" default loading={this.state.loadingButton}>Add Activity</Button>
             </form>
@@ -81,7 +81,9 @@ export class Activities extends React.Component {
         e.preventDefault();
         const rules = {
             name : 'isRequired|shouldContainLetters',
-            type : 'isRequired'
+            type : 'isRequired',
+            description : 'isRequired',
+            "Start date" : 'isRequired'
         };
         const errors = new Validator(this.state, rules);
         this.setState({ errors });
@@ -119,6 +121,7 @@ const mapDispatchToProps = dispatch => ({
     setModalErrors : errors => dispatch(setModalErrors(errors)),
     createActivity   : activity => dispatch(createActivity(activity)),
 });
+
 
 
 const mapStateToProps = state => ({
