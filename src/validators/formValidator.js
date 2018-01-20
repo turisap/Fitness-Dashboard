@@ -4,85 +4,32 @@
 
 const FormValidator = function (state, rules)  {
 
+    /**
+     * State of a component which is supposed to be validated
+     */
     this.state = state;
+
+
+    /**
+     * Object with state's properties to validate and corresponding rules
+     */
     this.rules = rules;
+
+
     /**
      * Holds Error objects
      */
     this.errors = {};
 
 
-
-
     /**
-     * Gets array or rules out of string which was supplied in rules object
-     * @param string
-     * @returns {*}
+     * Returns array of errors
      */
-    this.getRules = (string) => {
-        return string.split('|');
-    };
-
-
-
-
-    /**
-     * Empties errors array
-     */
-    this.dropErrors = () => this.errors = {};
-
-
-
-
-    /**
-     * Checks if the value is present
-     * @param value
-     * @param fieldName
-     * @returns {Error}
-     */
-    this.isRequired = (value, fieldName) => {
-        checkIfExistsInErrors.call(this, fieldName);
-        if (!value)  {
-            this.errors[fieldName].push(`${fieldName} is required`);
-        }
-        return this;
-    };
-
-
-
-    /**
-     * Checks whether there is at lest one letter in the field
-     * @param value
-     * @param fieldName
-     * @returns {Error}
-     */
-    this.shouldContainLetters = (value, fieldName) => {
-        const pattern = new RegExp(/[a-zА-я]+/i);
-        if (!pattern.test(value)) {
-            checkIfExistsInErrors.call(this, fieldName);
-            this.errors[fieldName].push(`${fieldName} should contain at least one letter`);
-        }
-        return this;
-    };
-
-
-    /**
-     * Checks whether a given property is numeric
-     * @param value
-     * @param fieldName
-     */
-    this.isNumeric = (value, fieldName) => {
-        const pattern = new RegExp(/^\d+$/);
-        if (!pattern.test(value)){
-            checkIfExistsInErrors.call(this,fieldName);
-            this.errors[fieldName].push(`${fieldName} should be a number`);
-        }
-    };
-
-
-
     return this.init();
-}
+};
+
+
+
 
 
 /**
@@ -101,6 +48,81 @@ FormValidator.prototype.init = function() {
     }
     return makeErrorsArray(this.errors);
 };
+
+
+
+
+/**
+ * Gets array or rules out of string which was supplied in rules object
+ * @param string
+ * @returns {*}
+ */
+FormValidator.prototype.getRules = string => {
+    return string.split('|');
+};
+
+
+
+
+/**
+ * Empties errors array
+ */
+FormValidator.prototype.dropErrors = function() {this.errors = {}};
+
+
+
+
+
+/**
+ * Checks whether there is at lest one letter in the field
+ * @param value
+ * @param fieldName
+ * @returns {Error}
+ */
+FormValidator.shouldContainLetters = function(value, fieldName) {
+    const pattern = new RegExp(/[a-zА-я]+/i);
+    if (!pattern.test(value)) {
+        checkIfExistsInErrors.call(this, fieldName);
+        this.errors[fieldName].push(`${fieldName} should contain at least one letter`);
+    }
+    return this;
+};
+
+
+
+
+/**
+ * Checks whether a given property is numeric
+ * @param value
+ * @param fieldName
+ */
+FormValidator.prototype.isNumeric = function(value, fieldName) {
+    const pattern = new RegExp(/^\d+$/);
+    if (!pattern.test(value)){
+        checkIfExistsInErrors.call(this,fieldName);
+        this.errors[fieldName].push(`${fieldName} should be a number`);
+    }
+};
+
+
+
+
+
+/**
+ * Checks if the value is present
+ * @param value
+ * @param fieldName
+ * @returns {Error}
+ */
+FormValidator.prototype.isRequired = function(value, fieldName) {
+    checkIfExistsInErrors.call(this, fieldName);
+    if (!value)  {
+        this.errors[fieldName].push(`${fieldName} is required`);
+    }
+    return this;
+};
+
+
 
 
 /**
