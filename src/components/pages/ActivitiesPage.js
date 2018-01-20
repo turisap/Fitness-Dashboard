@@ -3,10 +3,11 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
-import { Card, Input, Select } from 'semantic-ui-react'
+import { Card, Input, Dropdown } from 'semantic-ui-react'
 import { MorphIcon } from 'react-svg-buttons'
 import { DatePicker } from 'antd';
 import moment from 'moment';
+import { Button } from 'semantic-ui-react';
 
 import {getActivities} from '../../actions/activities';
 import Activity from '../Activity';
@@ -21,6 +22,20 @@ import {getListOfActivities} from '../../funcs/acitvities'
 export class Activities extends React.Component {
 
     /**
+     * State for holding data from inputs
+     * @type {{name: string, description: string, type: string, start_date_local: string}}
+     */
+    state = {
+        name : '',
+        description : '',
+        type : '',
+        start_date_local : '',
+        elapsed_time : 9253
+    };
+
+
+
+    /**
      * Gets list of activities from Strava API on page mount
      */
     componentDidMount() {
@@ -29,26 +44,45 @@ export class Activities extends React.Component {
         }
     }
 
+
+
     /**
      * Shows a modal with add activity form on button click
      * @param e
      */
     showAddForm = e => {
         const content = (
-            <form>
-                <Input placeholder='Name..' />
-                <Select placeholder='Type of activity' options={getListOfActivities()} />
-                <DatePicker defaultDate={moment()}/>
+            <form onSubmit={this.addActivity}>
+                <Input onChange={e => this.setState({name: e.target.value})} placeholder='Name..' />
+                <Input onChange={e => this.setState({description: e.target.value})} placeholder='Description..' />
+                <Dropdown onChange={(e, { value }) => this.setState({type : value.toLowerCase()})} placeholder='Type of activity' options={getListOfActivities()} />
+                <DatePicker onChange={e => this.setState({start_date_local : e.format('YYYY-MM-DDTHH:mm:ss')})} defaultDate={moment()}/>
+                <Button type="submit" primary loading>Add Activity</Button>
             </form>
         );
-        window.MODAL_CALLBACK = this.addActivity.bind(this);
-        this.props.setModalOff(content);
 
+        // this line provides modal with a callback function which erases data from page's state
+        // which prevents submission of an empty form with really existing data
+        window.MODAL_CALLBACK = () => this.setState.call(this,
+            {name : '', type : '', description : '', start_date_local: ''});
+
+        this.props.setModalOff(content);
     };
 
-    addActivity = activity => {
+
+
+
+    /**
+     * Saves a new activity to Strava API
+     * @param e
+     */
+    addActivity = e => {
+        e.preventDefault();
         alert('adding activity')
     };
+
+
+
 
     render() {
         return (
@@ -63,6 +97,10 @@ export class Activities extends React.Component {
         )
     }
 }
+
+
+
+
 
 const mapDispatchToProps = dispatch => ({
     getActivities : () => dispatch(getActivities()),
