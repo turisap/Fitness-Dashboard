@@ -2,27 +2,10 @@
  * Created by HP on 20-Jan-18.
  */
 
-const FormValidator = function(state, rules)  {
+const FormValidator = function (state, rules)  {
 
-    /**
-     * Initializer (calls all methods supplied in rules against given properties in state)
-     */
-    this.init = () => {
-        for(let property in state) {
-            if (property in rules) {
-                rules[property] = this.getRules(rules[property]);
-            }
-        }
-        for (let property in rules) {
-            rules[property].forEach(rule => {
-                this[rule].call(this, state[property], property)
-            })
-        }
-        return makeErrorsArray(this.errors);
-    };
-
-
-
+    this.state = state;
+    this.rules = rules;
     /**
      * Holds Error objects
      */
@@ -58,7 +41,7 @@ const FormValidator = function(state, rules)  {
      * @returns {Error}
      */
     this.isRequired = (value, fieldName) => {
-        checkIfExistsInErrors(fieldName);
+        checkIfExistsInErrors.call(this, fieldName);
         if (!value)  {
             this.errors[fieldName].push(`${fieldName} is required`);
         }
@@ -76,7 +59,7 @@ const FormValidator = function(state, rules)  {
     this.shouldContainLetters = (value, fieldName) => {
         const pattern = new RegExp(/[a-zА-я]+/i);
         if (!pattern.test(value)) {
-            checkIfExistsInErrors(fieldName);
+            checkIfExistsInErrors.call(this, fieldName);
             this.errors[fieldName].push(`${fieldName} should contain at least one letter`);
         }
         return this;
@@ -91,46 +74,63 @@ const FormValidator = function(state, rules)  {
     this.isNumeric = (value, fieldName) => {
         const pattern = new RegExp(/^\d+$/);
         if (!pattern.test(value)){
-            checkIfExistsInErrors(fieldName);
+            checkIfExistsInErrors.call(this,fieldName);
             this.errors[fieldName].push(`${fieldName} should be a number`);
         }
     };
 
 
 
-    /**
-     * Flattens errors object to an array of error messages
-     * @param errorsObj
-     * @returns {Array}
-     */
-    const makeErrorsArray = (errorsObj) => {
-        const entries = Object.entries(errorsObj);
-        const errors = [];
-        if(entries.length) {
-            entries.forEach(entry => {
-                const errorsArray = entry.pop();
-                errorsArray.forEach(err => errors.push(err))
-            })
-        }
-        return errors;
-    };
-
-
-
-    /**
-     * Checks if a property with a given name already exists in the error object and
-     * creates it with an empty array as value
-     * @param fieldName
-     */
-    const checkIfExistsInErrors = fieldName => {
-        if (!this.errors[fieldName]) {
-            this.errors[fieldName] = [];
-        }
-    };
-
-
     return this.init();
+}
+
+
+/**
+ * Initializer (calls all methods supplied in rules against given properties in state)
+ */
+FormValidator.prototype.init = function() {
+    for(let property in this.state) {
+        if (property in this.rules) {
+            this.rules[property] = this.getRules(this.rules[property]);
+        }
+    }
+    for (let property in this.rules) {
+        this.rules[property].forEach(rule => {
+            this[rule].call(this, this.state[property], property)
+        })
+    }
+    return makeErrorsArray(this.errors);
 };
 
+
+/**
+ * Flattens errors object to an array of error messages
+ * @param errorsObj
+ * @returns {Array}
+ */
+const makeErrorsArray = function(errorsObj) {
+    const entries = Object.entries(errorsObj);
+    const errors = [];
+    if(entries.length) {
+        entries.forEach(entry => {
+            const errorsArray = entry.pop();
+            errorsArray.forEach(err => errors.push(err))
+        })
+    }
+    return errors;
+};
+
+
+
+/**
+ * Checks if a property with a given name already exists in the error object and
+ * creates it with an empty array as a value
+ * @param fieldName
+ */
+const checkIfExistsInErrors = function(fieldName) {
+    if (!this.errors[fieldName]) {
+        this.errors[fieldName] = [];
+    }
+};
 
 export default FormValidator;
