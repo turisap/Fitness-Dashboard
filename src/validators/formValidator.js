@@ -12,8 +12,15 @@ const FormValidator = function(state, rules)  {
                 rules[property] = this.getRules(rules[property]);
             }
         }
-        console.log(rules);
+        for (let property in rules) {
+            rules[property].forEach(rule => {
+                this[rule].call(this, state[property], property)
+            })
+        }
+        console.log(this.errors);
     };
+
+
 
     /**
      * Holds Error objects
@@ -53,7 +60,7 @@ const FormValidator = function(state, rules)  {
             this.errors[fieldName] = [];
         }
         if (!value)  {
-            this.errors[fieldName].push(new Error(`${fieldName} is required`));
+            this.errors[fieldName].push(`${fieldName} is required`);
         }
         return this;
     };
@@ -72,7 +79,7 @@ const FormValidator = function(state, rules)  {
             if (!this.errors[fieldName]) {
                 this.errors[fieldName] = [];
             }
-            this.errors[fieldName].push(new Error(`${fieldName} should contain at least one letter`));
+            this.errors[fieldName].push(`${fieldName} should contain at least one letter`);
         }
         return this;
     };

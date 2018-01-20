@@ -72,7 +72,10 @@ export class Activities extends React.Component {
 
 
     validateForm = () => {
-        const rules = {name : 'isRequired|shouldContainLetter', type : 'numeric|isRequired'};
+        const rules = {
+            name : 'isRequired|shouldContainLetters',
+            type : 'shouldContainLetters|isRequired'
+        };
         const errors = new Validator(this.state, rules);
     };
 
