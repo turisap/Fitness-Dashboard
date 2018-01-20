@@ -1,11 +1,12 @@
 /**
  * Created by HP on 19-Jan-18.
  */
+import list from '../data/activitiesTypes';
 
-
-/*export getFileIconName = activityType => {
-    switch(activityType.toLowerCase()) {
-        case('ride'):
-            return 'riding.png'
-    }
-};*/
+export const getListOfActivities = () => {
+    return list.map((el, i) => ({
+        key: i,
+        value : el,
+        text : el
+    }))
+};

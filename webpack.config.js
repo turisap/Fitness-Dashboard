@@ -23,7 +23,7 @@ module.exports = (env) => {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'assets',
+                            outputPath: 'assets/',
                             publicPath: '/'
                         }
                         },
@@ -66,7 +66,7 @@ module.exports = (env) => {
                 })
                 },
                 {
-                    test: /\.(woff|woff2|eot|ttf|svg)$/,
+                    test: /\.(png|woff|woff2|eot|ttf|svg)$/,
                     loader: 'url-loader?limit=100000'
                 }
             ]

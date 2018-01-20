@@ -26,7 +26,7 @@ export const changedWeight = () => ({
  */
 export const setModalOff = content => ({
     type : actions.SET_MODAL_CONTENT,
-    content
+    content,
 });
 
 

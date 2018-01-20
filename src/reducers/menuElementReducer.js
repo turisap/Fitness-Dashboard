@@ -25,13 +25,15 @@ export default (state=menuElementsReducerDefaultState, action) => {
         case(actions.SET_MODAL_CONTENT):
             return {
                 ...state,
-                modalContent: action.content
+                modalContent: action.content,
+                modalCallBack : action.callback
             };
             break;
         case(actions.EMPTY_MODAL_CONTENT):
             return {
                 ...state,
-                modalContent: ''
+                modalContent: '',
+                modalCallBack: null
             };
             break;
         default: return state;
