@@ -5,7 +5,8 @@ import * as actions from '../actions/types';
 
 const menuElementsReducerDefaultState = {
     loadingChangingWeight: false,
-    modalContent : ''
+    modalContent : '',
+    modalErrors  : ''
 };
 
 export default (state=menuElementsReducerDefaultState, action) => {
@@ -26,14 +27,19 @@ export default (state=menuElementsReducerDefaultState, action) => {
             return {
                 ...state,
                 modalContent: action.content,
-                modalCallBack : action.callback
             };
             break;
         case(actions.EMPTY_MODAL_CONTENT):
             return {
                 ...state,
                 modalContent: '',
-                modalCallBack: null
+                modalErrors : null
+            };
+            break;
+        case(actions.SET_MODAL_ERRORS):
+            return {
+                ...state,
+                modalErrors : action.errors
             };
             break;
         default: return state;

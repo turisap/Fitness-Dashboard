@@ -11,9 +11,10 @@ import { Button } from 'semantic-ui-react';
 
 import {getActivities} from '../../actions/activities';
 import Activity from '../Activity';
-import {setModalOff} from '../../actions/menuElements';
+import {setModalOff, setModalErrors} from '../../actions/menuElements';
 import {getListOfActivities} from '../../funcs/acitvities';
 import Validator from '../../validators/formValidator';
+import Modal from '../Modal';
 
 
 
@@ -31,7 +32,8 @@ export class Activities extends React.Component {
         description : '',
         type : '',
         start_date_local : '',
-        elapsed_time : 9253
+        elapsed_time : 9253,
+        errors : []
     };
 
 
@@ -46,7 +48,6 @@ export class Activities extends React.Component {
     }
 
 
-
     /**
      * Shows a modal with add activity form on button click
      * @param e
@@ -58,6 +59,7 @@ export class Activities extends React.Component {
                 <Input onChange={e => this.setState({description: e.target.value})} placeholder='Description..' />
                 <Dropdown onChange={(e, { value }) => this.setState({type : value.toLowerCase()})} placeholder='Type of activity' options={getListOfActivities()} />
                 <DatePicker onChange={e => this.setState({start_date_local : e.format('YYYY-MM-DDTHH:mm:ss')})} defaultDate={moment()}/>
+                {this.state.errors}
                 <Button type="submit" primary loading>Add Activity</Button>
             </form>
         );
@@ -71,12 +73,17 @@ export class Activities extends React.Component {
     };
 
 
+    /**
+     * Validates form using Validator object and assigns error object to the state
+     */
     validateForm = () => {
         const rules = {
             name : 'isRequired|shouldContainLetters',
-            type : 'shouldContainLetters|isRequired'
+            type : 'isRequired'
         };
         const errors = new Validator(this.state, rules);
+        this.setState({ errors });
+        this.props.setModalErrors(errors)
     };
 
 
@@ -88,7 +95,6 @@ export class Activities extends React.Component {
     addActivity = e => {
         e.preventDefault();
         this.validateForm();
-        //alert('adding activity')
     };
 
 
@@ -114,12 +120,16 @@ export class Activities extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
     getActivities : () => dispatch(getActivities()),
-    setModalOff   : content => dispatch(setModalOff(content))
+    setModalOff   : content => dispatch(setModalOff(content)),
+    setModalErrors : errors => dispatch(setModalErrors(errors)),
 });
+
 
 const mapStateToProps = state => ({
     activities : state.activities.usersActivities,
     modalContent : state.menuElements.modalContent
 });
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Activities);

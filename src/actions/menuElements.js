@@ -36,3 +36,13 @@ export const setModalOff = content => ({
 export const emptyModal = () => ({
     type : actions.EMPTY_MODAL_CONTENT
 });
+
+
+/**
+ * Sets from form submission (on activities page) to modal
+ * @param errors
+ */
+export const setModalErrors = errors => ({
+    type : actions.SET_MODAL_ERRORS,
+    errors
+});

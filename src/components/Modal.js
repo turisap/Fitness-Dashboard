@@ -23,12 +23,14 @@ const Modal = props => (
         props.emptyModalContent();
     }}>
         <div>{props.modalContent}</div>
+        {props.modalErrors.length > 0 && props.modalErrors.map(err => <p key={err}>{err}</p>)}
     </Rodal>
 );
 
+
 const mapStateToProps = state => ({
     modalContent : state.menuElements.modalContent,
-    modalCallback : state.modalCallBack
+    modalErrors  : state.menuElements.modalErrors
 });
 
 const mapDispatchToProps = dispatch => ({
