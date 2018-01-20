@@ -53,6 +53,7 @@ FormValidator.prototype.init = function() {
             }
         })
     }
+    // strips message and context chars
     function getMethodFromRuleString(rule) {
         return rule.match(new RegExp(/^(.*?)[\{,\[]/))[1];
     }
@@ -80,14 +81,13 @@ FormValidator.prototype.getRules = string => {
 FormValidator.prototype.dropErrors = function() {this.errors = {}};
 
 
-
-
-
 /**
  * Checks whether there is at lest one letter in the field
  * @param value
  * @param fieldName
- * @returns {Error}
+ * @param context
+ * @param message
+ * @returns {FormValidator}
  */
 FormValidator.prototype.shouldContainLetters = function(value, fieldName, context, message) {
     const pattern = new RegExp(/[a-zА-я]+/i);
@@ -100,11 +100,12 @@ FormValidator.prototype.shouldContainLetters = function(value, fieldName, contex
 
 
 
-
 /**
  * Checks whether a given property is numeric
  * @param value
  * @param fieldName
+ * @param context
+ * @param message
  */
 FormValidator.prototype.isNumeric = function(value, fieldName, context, message) {
     const pattern = new RegExp(/^\d+$/);
@@ -116,13 +117,13 @@ FormValidator.prototype.isNumeric = function(value, fieldName, context, message)
 
 
 
-
-
 /**
  * Checks if the value is present
  * @param value
  * @param fieldName
- * @returns {Error}
+ * @param context
+ * @param message
+ * @returns {FormValidator}
  */
 FormValidator.prototype.isRequired = function(value, fieldName, context, message) {
     checkIfExistsInErrors.call(this, fieldName);
@@ -133,18 +134,19 @@ FormValidator.prototype.isRequired = function(value, fieldName, context, message
 };
 
 
+
 /**
  * Checks whether a given field has required length
  * Lenght is obtained from context in rules string
  * @param value
  * @param fieldName
  * @param minLength
- * @returns {boolean}
+ * @param message
+ * @returns {FormValidator}
  */
 FormValidator.prototype.hasMinLength = function (value, fieldName, minLength, message) {
     return value.length >= parseInt(minLength) ? this : this.errors[fieldName].push(message ? message : `${fieldName} should be at least ${minLength} characters`);
 };
-
 
 
 
@@ -153,23 +155,40 @@ FormValidator.prototype.hasMinLength = function (value, fieldName, minLength, me
  * @param value
  * @param fieldName
  * @param maxLength
- * @returns {*}
+ * @param message
+ * @returns {FormValidator}
  */
 FormValidator.prototype.hasMaxLength = function (value, fieldName, maxLength, message) {
     return value.length <= parseInt(maxLength) ? this : this.errors[fieldName].push(message ? message : `${fieldName} should be at maximum ${maxLength} characters`)
 };
 
 
-
 /**
  * Checks if a given value is a valid email
  * @param value
  * @param fieldName
+ * @param context
+ * @param message
  * @returns {FormValidator}
  */
 FormValidator.prototype.isEmail = function (value, fieldName, context, message) {
     const pattern = value.match(new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/));
-    return value.match(pattern) ? this : this.errors[fieldName].push(message ? message : `${fieldName} should be a valid email`);
+    return value.match(pattern) ? false : this.errors[fieldName].push(message ? message : `${fieldName} should be a valid email`);
+};
+
+
+
+
+/**
+ * Checks if a given value is equal to another one (comparison of passwords)
+ * @param value
+ * @param fieldName
+ * @param context
+ * @param message
+ * @returns {boolean}
+ */
+FormValidator.prototype.isEqualTo = function (value, fieldName, context, message) {
+    return value === this.state[context] ? false : this.errors[fieldName].push(message ? message : `${fieldName} should be equal to ${context}`)
 };
 
 
@@ -206,6 +225,7 @@ const checkIfExistsInErrors = function(fieldName) {
 };
 
 
+
 /**
  * Extracts params for validation from rule string in [] brackets
  * @param rule
@@ -222,8 +242,9 @@ const extractContext = function (rule) {
 };
 
 
+
 /**
- * Extracts an error message from rule string (between {})
+ * Extracts a custom error message from rule string (between {})
  * @param rule
  * @returns {null}
  */
