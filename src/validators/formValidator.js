@@ -50,8 +50,9 @@ const FormValidator = function(state, rules)  {
 
 
 
+
     /**
-     * Check
+     * Checks if the value is present
      * @param value
      * @param fieldName
      * @returns {Error}

@@ -14,7 +14,6 @@ import Activity from '../Activity';
 import {setModalOff, setModalErrors} from '../../actions/menuElements';
 import {getListOfActivities} from '../../funcs/acitvities';
 import Validator from '../../validators/formValidator';
-import Modal from '../Modal';
 
 
 
