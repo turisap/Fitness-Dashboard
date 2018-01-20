@@ -131,9 +131,30 @@ FormValidator.prototype.isRequired = function(value, fieldName) {
 };
 
 
+/**
+ * Checks whether a given field has required length
+ * Lenght is obtained from context in rules string
+ * @param value
+ * @param fieldName
+ * @param minLength
+ * @returns {boolean}
+ */
+FormValidator.prototype.hasMinLength = function (value, fieldName, minLength) {
+    return value.length >= parseInt(minLength) ? this : this.errors[fieldName].push(`${fieldName} should be at least ${minLength} characters`);
+};
 
-FormValidator.prototype.hasRequiredLength = function (value, fieldName, requiredLength) {
-    console.log(value, fieldName, requiredLength)
+
+
+
+/**
+ * Checks whether a given value does not exceed required length
+ * @param value
+ * @param fieldName
+ * @param maxLength
+ * @returns {*}
+ */
+FormValidator.prototype.hasMaxLength = function (value, fieldName, maxLength) {
+    return value.length <= parseInt(maxLength) ? this : this.errors[fieldName].push(`${fieldName} should be at maximum ${maxLength} characters`)
 };
 
 
