@@ -81,7 +81,7 @@ export class Activities extends React.Component {
     addActivity = e => {
         e.preventDefault();
         const rules = {
-            name : 'isRequired|shouldContainLetters',
+            name : 'isRequired|shouldContainLetters|isEmail',
             type : 'isRequired',
             description : 'isRequired|hasMinLength[5]|hasMaxLength[10]',
             "Start date" : 'isRequired'

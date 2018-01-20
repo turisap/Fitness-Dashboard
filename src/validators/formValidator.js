@@ -160,6 +160,19 @@ FormValidator.prototype.hasMaxLength = function (value, fieldName, maxLength) {
 
 
 /**
+ * Checks if a given value is a valid email
+ * @param value
+ * @param fieldName
+ * @returns {FormValidator}
+ */
+FormValidator.prototype.isEmail = function (value, fieldName) {
+    const pattern = value.match(new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/));
+    return value.match(pattern) ? this : this.errors[fieldName].push(`${fieldName} should be a valid email`);
+};
+
+
+
+/**
  * Flattens errors object to an array of error messages
  * @param errorsObj
  * @returns {Array}
