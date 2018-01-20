@@ -48,15 +48,13 @@ FormValidator.prototype.init = function() {
             extractMessage(rule);
             if(rule in this && !context){
                 this[rule].call(this, this.state[property], property);
-            } else if(context && !message) {
-                this[stripContextChars(rule)].call(this, this.state[property], property, context);
-            } else if(context && message) {
-                this[stripContextChars(rule)].call(this, this.state[property], property, context, message);
+            } else if(context || message) {
+                this[getMethodFromRuleString(rule)].call(this, this.state[property], property, context, message);
             }
         })
     }
-    function stripContextChars(rule) {
-        return rule.match(new RegExp(/^[^\[]*/))[0];
+    function getMethodFromRuleString(rule) {
+        return rule.match(new RegExp(/^(.*?)[\{,\[]/))[1];
     }
     return makeErrorsArray(this.errors);
 };
@@ -91,11 +89,11 @@ FormValidator.prototype.dropErrors = function() {this.errors = {}};
  * @param fieldName
  * @returns {Error}
  */
-FormValidator.prototype.shouldContainLetters = function(value, fieldName) {
+FormValidator.prototype.shouldContainLetters = function(value, fieldName, context, message) {
     const pattern = new RegExp(/[a-zА-я]+/i);
     if (!pattern.test(value)) {
         checkIfExistsInErrors.call(this, fieldName);
-        this.errors[fieldName].push(`${fieldName} should contain at least one letter`);
+        this.errors[fieldName].push(message ? message : `${fieldName} should contain at least one letter`);
     }
     return this;
 };
@@ -108,11 +106,11 @@ FormValidator.prototype.shouldContainLetters = function(value, fieldName) {
  * @param value
  * @param fieldName
  */
-FormValidator.prototype.isNumeric = function(value, fieldName) {
+FormValidator.prototype.isNumeric = function(value, fieldName, context, message) {
     const pattern = new RegExp(/^\d+$/);
     if (!pattern.test(value)){
         checkIfExistsInErrors.call(this,fieldName);
-        this.errors[fieldName].push(`${fieldName} should be a number`);
+        this.errors[fieldName].push(message ? message : `${fieldName} should be a number`);
     }
 };
 
@@ -126,10 +124,10 @@ FormValidator.prototype.isNumeric = function(value, fieldName) {
  * @param fieldName
  * @returns {Error}
  */
-FormValidator.prototype.isRequired = function(value, fieldName) {
+FormValidator.prototype.isRequired = function(value, fieldName, context, message) {
     checkIfExistsInErrors.call(this, fieldName);
     if (!value)  {
-        this.errors[fieldName].push(`${fieldName} is required`);
+        this.errors[fieldName].push(message ? message : `${fieldName} is required`);
     }
     return this;
 };
@@ -143,8 +141,8 @@ FormValidator.prototype.isRequired = function(value, fieldName) {
  * @param minLength
  * @returns {boolean}
  */
-FormValidator.prototype.hasMinLength = function (value, fieldName, minLength) {
-    return value.length >= parseInt(minLength) ? this : this.errors[fieldName].push(`${fieldName} should be at least ${minLength} characters`);
+FormValidator.prototype.hasMinLength = function (value, fieldName, minLength, message) {
+    return value.length >= parseInt(minLength) ? this : this.errors[fieldName].push(message ? message : `${fieldName} should be at least ${minLength} characters`);
 };
 
 
@@ -157,8 +155,8 @@ FormValidator.prototype.hasMinLength = function (value, fieldName, minLength) {
  * @param maxLength
  * @returns {*}
  */
-FormValidator.prototype.hasMaxLength = function (value, fieldName, maxLength) {
-    return value.length <= parseInt(maxLength) ? this : this.errors[fieldName].push(`${fieldName} should be at maximum ${maxLength} characters`)
+FormValidator.prototype.hasMaxLength = function (value, fieldName, maxLength, message) {
+    return value.length <= parseInt(maxLength) ? this : this.errors[fieldName].push(message ? message : `${fieldName} should be at maximum ${maxLength} characters`)
 };
 
 
@@ -169,9 +167,9 @@ FormValidator.prototype.hasMaxLength = function (value, fieldName, maxLength) {
  * @param fieldName
  * @returns {FormValidator}
  */
-FormValidator.prototype.isEmail = function (value, fieldName) {
+FormValidator.prototype.isEmail = function (value, fieldName, context, message) {
     const pattern = value.match(new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/));
-    return value.match(pattern) ? this : this.errors[fieldName].push(`${fieldName} should be a valid email`);
+    return value.match(pattern) ? this : this.errors[fieldName].push(message ? message : `${fieldName} should be a valid email`);
 };
 
 
