@@ -44,10 +44,14 @@ FormValidator.prototype.init = function() {
     for (let property in this.rules) {
         this.rules[property].forEach(rule => {
             const context = extractContext(rule);
+            const message = extractMessage(rule);
+            extractMessage(rule);
             if(rule in this && !context){
                 this[rule].call(this, this.state[property], property);
-            } else if(context) {
+            } else if(context && !message) {
                 this[stripContextChars(rule)].call(this, this.state[property], property, context);
+            } else if(context && message) {
+                this[stripContextChars(rule)].call(this, this.state[property], property, context, message);
             }
         })
     }
@@ -214,6 +218,22 @@ const extractContext = function (rule) {
     if (match) {
         const context = match[0].match(new RegExp(/[^\[,^\]]+/));
         return context ? context[0] : null;
+    }
+    return null;
+
+};
+
+
+/**
+ * Extracts an error message from rule string (between {})
+ * @param rule
+ * @returns {null}
+ */
+const extractMessage = function (rule) {
+    const pattern = new RegExp(/\{(.*?)\}/);
+    const match = rule.match(pattern);
+    if (match) {
+        return match[1];
     }
     return null;
 
