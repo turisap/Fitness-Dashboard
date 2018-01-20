@@ -4,7 +4,7 @@
 import * as actions from '../actions/types';
 
 const menuElementsReducerDefaultState = {
-    loadingChangingWeight: false,
+    loadingElements: {activityForm: true},
     modalContent : '',
     modalErrors  : ''
 };
@@ -14,13 +14,13 @@ export default (state=menuElementsReducerDefaultState, action) => {
         case(actions.CHANGING_WEIGHT):
             return {
                 ...state,
-                loadingChangingWeight : true
+                loadingElements : {weight : true}
             };
             break;
         case(actions.CHANGED_WEIGHT):
             return {
                 ...state,
-                loadingChangingWeight : false
+                loadingElements : {}
             };
             break;
         case(actions.SET_MODAL_CONTENT):
@@ -33,13 +33,25 @@ export default (state=menuElementsReducerDefaultState, action) => {
             return {
                 ...state,
                 modalContent: '',
-                modalErrors : null
+                modalErrors : []
             };
             break;
         case(actions.SET_MODAL_ERRORS):
             return {
                 ...state,
                 modalErrors : action.errors
+            };
+            break;
+        case(actions.SET_LOADING_ELEMENT):
+            return {
+                ...state,
+                loadingElements: {[action.element]: true}
+            };
+            break;
+        case(actions.UNSET_LOADING_ELEMENT):
+            return {
+                ...state,
+                loadingElements: {[action.element]: false}
             };
             break;
         default: return state;

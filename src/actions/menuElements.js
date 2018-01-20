@@ -46,3 +46,21 @@ export const setModalErrors = errors => ({
     type : actions.SET_MODAL_ERRORS,
     errors
 });
+
+
+/**
+ * Sets a given element's loading status to true
+ */
+export const setLoadingElement = element => ({
+    type : actions.SET_LOADING_ELEMENT,
+    element
+});
+
+
+/**
+ * Unsets a given element's loading status to true
+ */
+export const unsetLoadingElement = element => ({
+    type : actions.UNSET_LOADING_ELEMENT,
+    element
+});

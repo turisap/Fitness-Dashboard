@@ -9,12 +9,12 @@ const ENV = {
     stravaAPI : {
         clientID : 22686,
         userId : 27288736,
-        clientSecret : '	fe6516086d6c0893b2de715069861ca7bd2f23d4',
+        clientSecret : 'fe6516086d6c0893b2de715069861ca7bd2f23d4',
         publicAccessToken : 'f6d620252df82826e071a301ea45625b919fb136',
-        redirectURL : 'http://localhost:8080',
-        activitiesBaseEndPoint : 'https://www.strava.com/api/v3/activities',
-        athleteActivitiesBaseEndPoint : 'https://www.strava.com/api/v3/athlete/activities',
-        gearBaseEndPoint : 'https://www.strava.com/api/v3/gear/',
+        redirectURL : window.DEBUG ? 'http://localhost:8080' : '',
+        activitiesBaseEndPoint : 'https://www.strava.com/api/v3/activities?',
+        athleteActivitiesBaseEndPoint : 'https://www.strava.com/api/v3/athlete/activities?',
+        gearBaseEndPoint : 'https://www.strava.com/api/v3/gear?',
     },
     backendServer : {
         rootUrl : ''

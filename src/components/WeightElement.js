@@ -66,7 +66,7 @@ class WeightElement extends React.Component {
 
 
 const mapStateToProps = state => ({
-    loadingWeight : state.menuElements.loadingChangingWeight
+    loadingWeight : state.menuElements.loadingElements.weight
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -9,7 +9,7 @@ import { DatePicker } from 'antd';
 import moment from 'moment';
 import { Button } from 'semantic-ui-react';
 
-import {getActivities} from '../../actions/activities';
+import {getActivities, createActivity} from '../../actions/activities';
 import Activity from '../Activity';
 import {setModalOff, setModalErrors} from '../../actions/menuElements';
 import {getListOfActivities} from '../../funcs/acitvities';
@@ -32,7 +32,7 @@ export class Activities extends React.Component {
         type : '',
         start_date_local : '',
         elapsed_time : 9253,
-        errors : []
+        errors : [],
     };
 
 
@@ -59,7 +59,7 @@ export class Activities extends React.Component {
                 <Dropdown onChange={(e, { value }) => this.setState({type : value.toLowerCase()})} placeholder='Type of activity' options={getListOfActivities()} />
                 <DatePicker onChange={e => this.setState({start_date_local : e.format('YYYY-MM-DDTHH:mm:ss')})} defaultDate={moment()}/>
                 {this.state.errors}
-                <Button type="submit" primary loading>Add Activity</Button>
+                <Button type="submit" default loading={this.state.loadingButton}>Add Activity</Button>
             </form>
         );
 
@@ -72,28 +72,24 @@ export class Activities extends React.Component {
     };
 
 
+
     /**
-     * Validates form using Validator object and assigns error object to the state
+     * Validates form and saves a new activity to Strava API on successful validation
+     * @param e
      */
-    validateForm = () => {
+    addActivity = e => {
+        e.preventDefault();
         const rules = {
             name : 'isRequired|shouldContainLetters',
             type : 'isRequired'
         };
         const errors = new Validator(this.state, rules);
         this.setState({ errors });
-        this.props.setModalErrors(errors)
-    };
-
-
-
-    /**
-     * Saves a new activity to Strava API
-     * @param e
-     */
-    addActivity = e => {
-        e.preventDefault();
-        this.validateForm();
+        this.props.setModalErrors(errors);
+        if (!errors.length) {
+            Object.defineProperty(this.state, 'errors', {enumerable:false});
+            this.props.createActivity(this.state);
+        }
     };
 
 
@@ -118,15 +114,17 @@ export class Activities extends React.Component {
 
 
 const mapDispatchToProps = dispatch => ({
-    getActivities : () => dispatch(getActivities()),
-    setModalOff   : content => dispatch(setModalOff(content)),
+    getActivities  : () => dispatch(getActivities()),
+    setModalOff    : content => dispatch(setModalOff(content)),
     setModalErrors : errors => dispatch(setModalErrors(errors)),
+    createActivity   : activity => dispatch(createActivity(activity)),
 });
 
 
 const mapStateToProps = state => ({
-    activities : state.activities.usersActivities,
-    modalContent : state.menuElements.modalContent
+    activities    : state.activities.usersActivities,
+    modalContent  : state.menuElements.modalContent,
+    loadingButton : state.menuElements.loadingElements.activityForm,
 });
 
 

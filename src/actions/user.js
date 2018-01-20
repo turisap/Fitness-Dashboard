@@ -20,7 +20,9 @@ export const getAccessToken = code => dispatch => {
             localStorage.setItem('access_token', resp.data.access_token);
             dispatch({type: actions.GET_ACCESS_TOKEN, access_token : resp.data.access_token});
         })
-        .catch(err => console.log(err.response));
+        .catch(err => {
+            if(window.DEBUG)console.log(err)
+        });
 };
 
 
@@ -35,7 +37,9 @@ export const getAthlete = () => dispatch => {
         .then(resp => {
             dispatch({type : actions.GET_ATHLETE, athlete : resp.data})
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            if(window.DEBUG)console.log(err)
+        });
 };
 
 
@@ -58,6 +62,6 @@ export const updateAthlete = (updates, actionBefore, actionAfter) => dispatch =>
         })
         .catch(err => {
             if (actionAfter instanceof Function) dispatch(actionAfter());
-            console.log(err);
+            if(window.DEBUG)console.log(err);
         })
 };

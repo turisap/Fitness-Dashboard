@@ -3,6 +3,7 @@
  */
 import axios from 'axios';
 import * as actions from './types';
+import {setLoadingElement, unsetLoadingElement} from './menuElements';
 import ENV from '../../ENV';
 
 const autHeaders = {headers : {Authorization : `Bearer ${localStorage.getItem('access_token')}`}};
@@ -29,15 +30,20 @@ export const getActivities = () => dispatch => {
  * @returns {Promise.<T>}
  */
 export const createActivity = data => dispatch => {
-    let URl = ENV.stravaAPI.activitiesBaseEndPoint;
+    let URL = ENV.stravaAPI.activitiesBaseEndPoint;
     for (let param in data) {
-        URL += `${param = data[param]}`;
+        URL += `${param}=${data[param]}&`;
     }
-    return axios.post(URl, null, autHeaders)
+    dispatch(setLoadingElement('activityForm'));
+    return axios.post(URL, null, autHeaders)
         .then(resp => {
-            console.log(resp);
+            if (resp.status === 201) {
+
+            }
+            dispatch(unsetLoadingElement('activityForm'));
         })
         .catch(err => {
-            if(window.DEBUG) console.log(err)
+            if(window.DEBUG) console.log(err.response.data.errors);
+            dispatch(unsetLoadingElement('activityForm'));
         });
 };
