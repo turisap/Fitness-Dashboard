@@ -3,7 +3,7 @@
  */
 import axios from 'axios';
 import * as actions from './types';
-import {setLoadingElement, unsetLoadingElement} from './menuElements';
+import {setLoadingElement, unsetLoadingElement, emptyModal} from './menuElements';
 import ENV from '../../ENV';
 
 const autHeaders = {headers : {Authorization : `Bearer ${localStorage.getItem('access_token')}`}};
@@ -38,13 +38,15 @@ export const createActivity = data => dispatch => {
             URL += `${param}=${data[param]}&`;
         }
     }
+
     dispatch(setLoadingElement('activityForm'));
     return axios.post(URL, null, autHeaders)
         .then(resp => {
             if (resp.status === 201) {
-
+                dispatch(emptyModal());
             }
             dispatch(unsetLoadingElement('activityForm'));
+            dispatch({type: actions.FLIP_NEW_ACTIVITY_FLAG})
         })
         .catch(err => {
             if(window.DEBUG) console.log(err.response.data.errors);

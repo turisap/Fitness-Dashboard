@@ -6,7 +6,8 @@ import * as actions from '../actions/types';
 const menuElementsReducerDefaultState = {
     loadingElements: {},
     modalContent : '',
-    modalErrors  : ''
+    modalErrors  : '',
+    newActivitySaved  : false,
 };
 
 export default (state=menuElementsReducerDefaultState, action) => {
@@ -40,6 +41,12 @@ export default (state=menuElementsReducerDefaultState, action) => {
             return {
                 ...state,
                 loadingElements: {[action.element]: false}
+            };
+            break;
+        case(actions.FLIP_NEW_ACTIVITY_FLAG):
+            return {
+                ...state,
+                newActivitySaved : !state.newActivitySaved
             };
             break;
         default: return state;

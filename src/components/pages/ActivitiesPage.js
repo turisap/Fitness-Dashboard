@@ -48,6 +48,17 @@ export class Activities extends React.Component {
 
 
     /**
+     * Updates activities list after successful saving of a new activity
+     * @param nextProps
+     */
+    componentWillReceiveProps(nextProps) {
+        if(this.props.newActivitySaved !== nextProps.newActivitySaved){
+            this.props.getActivities();
+        }
+    }
+
+
+    /**
      * Shows a modal with add activity form on button click
      * @param e
      */
@@ -116,18 +127,18 @@ export class Activities extends React.Component {
 
 
 const mapDispatchToProps = dispatch => ({
-    getActivities  : () => dispatch(getActivities()),
-    setModalOff    : content => dispatch(setModalOff(content)),
-    setModalErrors : errors => dispatch(setModalErrors(errors)),
+    getActivities    : () => dispatch(getActivities()),
+    setModalOff      : content => dispatch(setModalOff(content)),
+    setModalErrors   : errors => dispatch(setModalErrors(errors)),
     createActivity   : activity => dispatch(createActivity(activity)),
 });
 
 
 
 const mapStateToProps = state => ({
-    activities    : state.activities.usersActivities,
-    modalContent  : state.menuElements.modalContent,
-    loadingButton : state.menuElements.loadingElements.activityForm,
+    activities         : state.activities.usersActivities,
+    modalContent       : state.menuElements.modalContent,
+    newActivitySaved   : state.menuElements.newActivitySaved
 });
 
 
