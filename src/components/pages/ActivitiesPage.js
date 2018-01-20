@@ -83,7 +83,7 @@ export class Activities extends React.Component {
         const rules = {
             name : 'isRequired|shouldContainLetters',
             type : 'isRequired',
-            description : 'isRequired',
+            description : 'isRequired|hasRequiredLength[5]',
             "Start date" : 'isRequired'
         };
         const errors = new Validator(this.state, rules);

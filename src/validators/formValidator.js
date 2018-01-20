@@ -43,8 +43,16 @@ FormValidator.prototype.init = function() {
     }
     for (let property in this.rules) {
         this.rules[property].forEach(rule => {
-            this[rule].call(this, this.state[property], property)
+            const context = extractContext(rule);
+            if(rule in this && !context){
+                this[rule].call(this, this.state[property], property);
+            } else if(context) {
+                this[stripContextChars(rule)].call(this, this.state[property], property, context);
+            }
         })
+    }
+    function stripContextChars(rule) {
+        return rule.match(new RegExp(/^[^\[]*/))[0];
     }
     return makeErrorsArray(this.errors);
 };
@@ -124,6 +132,11 @@ FormValidator.prototype.isRequired = function(value, fieldName) {
 
 
 
+FormValidator.prototype.hasRequiredLength = function (value, fieldName, requiredLength) {
+    console.log(value, fieldName, requiredLength)
+};
+
+
 
 /**
  * Flattens errors object to an array of error messages
@@ -144,6 +157,7 @@ const makeErrorsArray = function(errorsObj) {
 
 
 
+
 /**
  * Checks if a property with a given name already exists in the error object and
  * creates it with an empty array as a value
@@ -154,5 +168,24 @@ const checkIfExistsInErrors = function(fieldName) {
         this.errors[fieldName] = [];
     }
 };
+
+
+/**
+ * Extracts params for validation from rule string in [] brackets
+ * @param rule
+ */
+const extractContext = function (rule) {
+    const pattern = new RegExp(/\[\w+\]/);
+    const match = rule.match(pattern);
+    if (match) {
+        const context = match[0].match(new RegExp(/[^\[,^\]]+/));
+        return context ? context[0] : null;
+    }
+    return null;
+
+};
+
+
+
 
 export default FormValidator;
