@@ -67,6 +67,7 @@
     "webpack-dev-server": "^2.9.5"
   },
   "devDependencies": {
+    "autoprefixer": "^7.2.5",
     "babel-core": "^6.26.0",
     "babel-jest": "^22.0.4",
     "babel-loader": "^7.1.2",
@@ -75,14 +76,19 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-airbnb": "^2.4.0",
     "babel-preset-stage-2": "^6.24.1",
+    "cssnano": "^3.10.0",
     "file-loader": "^1.1.6",
     "image-webpack-loader": "^3.4.2",
     "img-loader": "^2.0.0",
     "jest": "^21.2.1",
     "jshint": "^2.9.5",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-import": "^11.0.0",
+    "postcss-loader": "^2.0.10",
     "redux-mock-store": "^1.4.0",
     "regenerator-runtime": "^0.11.1",
     "rest": "^2.0.0",
+    "sugarss": "^1.0.1",
     "url-loader": "^0.6.2"
   }
 }

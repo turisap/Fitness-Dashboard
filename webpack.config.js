@@ -18,14 +18,15 @@ module.exports = (env) => {
                      exclude: /node_modules/
                 },
                 {
-                    test: /\.(png|jp(e*)g|svg)$/,
-                    use: [{
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'assets/',
-                            publicPath: '/'
-                        }
+                    test: /\.(png|jpg|gif)$/,
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                                name: '[name].[ext]',
+                                outputPath: 'assets/',
+                                publicPath: '/'
+                            }
                         },
                         {
                             loader: 'image-webpack-loader',
@@ -44,31 +45,44 @@ module.exports = (env) => {
                     ]
                 },
                 {
-                test: /\.s?css$/,
-                use: CSSExtract.extract({
-                    use : [
-                        {
-                            loader : 'css-loader',
-                            options : {
-                                sourceMap : true // source map for css in development
-                            }
-                        },
-                        {
-                            loader : 'sass-loader',
-                            options : {
-                                sourceMap : true
-                            }
-                        },
-                        {
-                            loader: "jshint-loader"
-                        }
-                    ]
-                })
+                    test: /\.(woff|woff2|eot|ttf|svg)$/,
+                    loader: 'url-loader?limit=1024'
                 },
                 {
-                    test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-                    loader: 'url-loader?limit=100000'
-                }
+                    test: /\.s?css$/,
+                    use: CSSExtract.extract({
+                        use : [
+                            {
+                                loader : 'css-loader',
+                                options : {
+                                    sourceMap : true // source map for css in development
+                                }
+                            },
+                            {
+                                loader: 'postcss-loader',
+                                options: {
+                                    ident: 'postcss',
+                                    plugins: (loader) => [
+                                        require('postcss-import')({ root: loader.resourcePath }),
+                                        require('postcss-cssnext')(),
+                                        require('autoprefixer')(),
+                                        require('cssnano')()
+                                    ]
+                                }
+                            },
+                            {
+                                loader : 'sass-loader',
+                                options : {
+                                    sourceMap : true
+                                }
+                            },
+                            {
+                                loader: "jshint-loader"
+                            }
+                        ]
+                    })
+                },
+
             ]
         },
         plugins : [
