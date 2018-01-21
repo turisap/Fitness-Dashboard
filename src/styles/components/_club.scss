@@ -32,5 +32,9 @@
   -ms-animation: rotating 2s linear infinite;
   -o-animation: rotating 2s linear infinite;
   animation: rotating 2s linear infinite;
-  display: flex;
+}
+
+.ui.image {
+  width: 100px;
+  height: 50px;
 }

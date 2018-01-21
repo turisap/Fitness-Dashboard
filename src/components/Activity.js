@@ -4,14 +4,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Card, Icon, Image } from 'semantic-ui-react';
-import {CloseButton} from 'react-svg-buttons'
 
 const Activity = props => {
     const {id, name, type, description, average_speed, max_speed, location_country} = props.activity;
-    const src = `./assets/${type.toLowerCase()}.png`;
     return (
         <Card>
-            <Image src={src} />
+            <Image src={require('../assets/img/yoga.png')} />
+            <Image src={require('../assets/img/swim.png')} />
+            <Image src={require('../assets/img/alpineski.png')} />
             <Card.Content>
                 <Card.Header>{name}</Card.Header>
                 <Card.Meta>{type}</Card.Meta>

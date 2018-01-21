@@ -18,35 +18,41 @@ module.exports = (env) => {
                      exclude: /node_modules/
                 },
                 {
-                    test: /\.(png|jpg|gif)$/,
+                    test: /\.(gif|png|jpe?g|svg)$/i,
                     use: [
                         {
                             loader: 'file-loader',
                             options: {
                                 name: '[name].[ext]',
-                                outputPath: 'assets/',
-                                publicPath: '/'
+                                outputPath : 'assets/',
+                                publicPath: 'scripts/'
                             }
                         },
                         {
                             loader: 'image-webpack-loader',
                             options: {
+                                mozjpeg: {
+                                    progressive: true,
+                                    quality: 65
+                                },
+                                // optipng.enabled: false will disable optipng
                                 optipng: {
-                                    optimizationLevel: 7
+                                    enabled: false,
                                 },
                                 pngquant: {
-                                    quality: '65-90'
+                                    quality: '65-90',
+                                    speed: 4
                                 },
-                                mozjpeg: {
-                                    quality: 65
-                                }
+                                gifsicle: {
+                                    interlaced: false,
+                                },
                             }
-                        }
+                        },
                     ]
                 },
                 {
                     test: /\.(woff|woff2|eot|ttf|svg)$/,
-                    loader: 'url-loader?limit=1024'
+                    loader: 'url-loader?limit=1000'
                 },
                 {
                     test: /\.s?css$/,
@@ -65,7 +71,6 @@ module.exports = (env) => {
                                     plugins: (loader) => [
                                         require('postcss-import')({ root: loader.resourcePath }),
                                         require('postcss-cssnext')(),
-                                        require('autoprefixer')(),
                                         require('cssnano')()
                                     ]
                                 }
@@ -75,9 +80,6 @@ module.exports = (env) => {
                                 options : {
                                     sourceMap : true
                                 }
-                            },
-                            {
-                                loader: "jshint-loader"
                             }
                         ]
                     })
