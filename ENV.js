@@ -15,6 +15,7 @@ const ENV = {
         activitiesBaseEndPoint : 'https://www.strava.com/api/v3/activities?',
         athleteActivitiesBaseEndPoint : 'https://www.strava.com/api/v3/athlete/activities?',
         athleteClubsBaseEndPoint      : 'https://www.strava.com/api/v3/athlete/clubs',
+        leaveClub : 'https://www.strava.com/api/v3/clubs/'
     },
     backendServer : {
         rootUrl : ''
