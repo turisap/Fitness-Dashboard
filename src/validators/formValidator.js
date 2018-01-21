@@ -55,7 +55,7 @@ FormValidator.prototype.init = function() {
     }
     // strips message and context chars
     function getMethodFromRuleString(rule) {
-        return rule.match(new RegExp(/^(.*?)[\{,\[]/))[1];
+        return rule.match(/^(.*?)[\{,\[]/)[1];
     }
     return makeErrorsArray(this.errors);
 };
@@ -90,7 +90,7 @@ FormValidator.prototype.dropErrors = function() {this.errors = {}};
  * @returns {FormValidator}
  */
 FormValidator.prototype.shouldContainLetters = function(value, fieldName, context, message) {
-    const pattern = new RegExp(/[a-zА-я]+/i);
+    const pattern = /[a-zА-я]+/i;
     if (!pattern.test(value)) {
         checkIfExistsInErrors.call(this, fieldName);
         this.errors[fieldName].push(message ? message : `${fieldName} should contain at least one letter`);
@@ -108,7 +108,7 @@ FormValidator.prototype.shouldContainLetters = function(value, fieldName, contex
  * @param message
  */
 FormValidator.prototype.isNumeric = function(value, fieldName, context, message) {
-    const pattern = new RegExp(/^\d+$/);
+    const pattern = /^\d+$/;
     if (!pattern.test(value)){
         checkIfExistsInErrors.call(this,fieldName);
         this.errors[fieldName].push(message ? message : `${fieldName} should be a number`);
@@ -231,10 +231,10 @@ const checkIfExistsInErrors = function(fieldName) {
  * @param rule
  */
 const extractContext = function (rule) {
-    const pattern = new RegExp(/\[\w+\]/);
+    const pattern = /\[\w+\]/;
     const match = rule.match(pattern);
     if (match) {
-        const context = match[0].match(new RegExp(/[^\[,^\]]+/));
+        const context = match[0].match(/[^\[,^\]]+/);
         return context ? context[0] : null;
     }
     return null;
@@ -249,7 +249,7 @@ const extractContext = function (rule) {
  * @returns {null}
  */
 const extractMessage = function (rule) {
-    const pattern = new RegExp(/\{(.*?)\}/);
+    const pattern = /\{(.*?)\}/;
     const match = rule.match(pattern);
     if (match) {
         return match[1];
