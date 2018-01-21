@@ -8,6 +8,7 @@ import React from 'react';
 
 import HomePage from '../components/pages/HomePage';
 import ActivitiesPage from '../components/pages/ActivitiesPage';
+import Clubs from '../components/pages/Clubs'
 import NavBar from '../components/NavBar';
 import Modal from '../components/Modal';
 import RequireAuth from '../components/auth/RequireAuthHOC';
@@ -27,6 +28,7 @@ const AppRouter = () => (
                     className="route-wrapper">
                     <Route path="/" component={HomePage} exact={true}/>
                     <Route path="/activities" component={ActivitiesPage}/>
+                    <Route path="/clubs" component={Clubs}/>
                 </AnimatedSwitch>
             </div>
         </BrowserRouter>

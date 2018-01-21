@@ -8,7 +8,6 @@ export default props => (
     <div>
         <Link to={'/'}>Profile</Link>
         <Link to={'/activities'}>Activities</Link>
-        <Link to={'/gear'}>Gear</Link>
-        <Link to={'/routes'}>Routes</Link>
+        <Link to={'/clubs'}>Clubs</Link>
     </div>
 )

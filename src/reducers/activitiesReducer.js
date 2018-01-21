@@ -4,7 +4,7 @@
 import * as actions from '../actions/types';
 
 const activitiesReducerDefaultState =  {
-    usersActivities : []
+    usersActivities : [],
 };
 
 export default (state=activitiesReducerDefaultState, action) => {
@@ -14,7 +14,6 @@ export default (state=activitiesReducerDefaultState, action) => {
                 ...state,
                 usersActivities : action.activities,
             };
-        default:
-            return state;
+        default: return state;
     }
 }

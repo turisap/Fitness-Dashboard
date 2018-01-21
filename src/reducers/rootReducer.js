@@ -6,6 +6,7 @@ import {combineReducers} from 'redux';
 import ActivitiesReducer from './activitiesReducer';
 import UserDataReducer from './userDataReducer';
 import MenuElementsReducer from './menuElementReducer';
+import ClubsReducer from './clubsReducer';
 
 
 /**
@@ -14,8 +15,9 @@ import MenuElementsReducer from './menuElementReducer';
  */
 const rootReducer = combineReducers({
     activities : ActivitiesReducer,
+    clubs        : ClubsReducer,
     userData   : UserDataReducer,
-    menuElements : MenuElementsReducer
+    menuElements : MenuElementsReducer,
 });
 
 export default rootReducer;

@@ -29,7 +29,7 @@ class HomePage extends React.Component {
         const clientSecret = ENV.stravaAPI.clientSecret;
         const clientId = ENV.stravaAPI.clientID;
 
-        if(!accessCode && !this.props.access_token) {
+        if((!accessCode && !this.props.access_token)) {
             window.location.assign(`https://www.strava.com/oauth/authorize?client_id=${clientId}` +
                 `&response_type=code&redirect_uri=${ENV.stravaAPI.redirectURL}&scope=view_private,write`);
         } else if(!this.props.access_token) {

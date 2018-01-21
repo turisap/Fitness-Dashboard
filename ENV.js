@@ -14,7 +14,7 @@ const ENV = {
         redirectURL : 'http://localhost:8080',
         activitiesBaseEndPoint : 'https://www.strava.com/api/v3/activities?',
         athleteActivitiesBaseEndPoint : 'https://www.strava.com/api/v3/athlete/activities?',
-        gearBaseEndPoint : 'https://www.strava.com/api/v3/gear?',
+        athleteClubsBaseEndPoint      : 'https://www.strava.com/api/v3/athlete/clubs',
     },
     backendServer : {
         rootUrl : ''

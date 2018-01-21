@@ -23,3 +23,9 @@ export const CREATE_ACTIVITY        = 'CREATE_ACTIVITY';
 export const GET_ACTIVITIES         = 'GET_ACTIVITIES';
 
 
+// CLUBS RELATED ACTIONS TYPES
+export const GET_CLUBS              = 'GET_CLUBS';
+export const LEAVE_CLUB             = 'LEAVE_CLUB';
+
+
+
