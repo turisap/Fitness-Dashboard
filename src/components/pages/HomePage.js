@@ -11,6 +11,7 @@ import {getAccessToken, getAthlete, updateAthlete} from '../../actions/user';
 import {extractPropertiesToShow} from '../../funcs/athlete';
 import Element from '../SimpleElement';
 import WeightElement from '../WeightElement';
+import Loader from '../Loader';
 
 
 
@@ -54,22 +55,27 @@ class HomePage extends React.Component {
         const elements = extractPropertiesToShow(this.props.athlete);
         return(
             <div>
-                {elements.map((el, i) =>
-                    el.type === 'weight'
-                        ?
-                        <WeightElement
-                            key={i}
-                            title={el.title}
-                            value={el.value}
-                            subtitle={el.subtitle}
-                        />
-                        :
-                        <Element
-                            key={i}
-                            title={el.title}
-                            subtitle={el.subtitle}
-                        />
-                )}
+                {elements.length > 0
+                    ?
+                    elements.map((el, i) =>
+                        el.type === 'weight'
+                            ?
+                            <WeightElement
+                                key={i}
+                                title={el.title}
+                                value={el.value}
+                                subtitle={el.subtitle}
+                            />
+                            :
+                            <Element
+                                key={i}
+                                title={el.title}
+                                subtitle={el.subtitle}
+                            />
+                    )
+                    :
+                    <Loader/>
+                }
             </div>
         )
     }

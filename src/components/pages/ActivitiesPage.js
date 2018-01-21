@@ -13,6 +13,7 @@ import {getActivities, createActivity} from '../../actions/activities';
 import Activity from '../Activity';
 import {setModalOff, setModalErrors} from '../../actions/menuElements';
 import {getListOfActivities} from '../../funcs/acitvities';
+import Loader from '../Loader';
 import Validator from '../../validators/formValidator';
 
 
@@ -99,14 +100,22 @@ export class Activities extends React.Component {
 
 
     render() {
+        const activities = this.props.activities;
         return (
             <div>
-                {this.props.activities.map(act => <Activity key={act.id} activity={act}/>)}
-                <Card>
-                    <Card.Content>
-                        <MorphIcon type="plus" onClick={this.showAddForm} />
-                    </Card.Content>
-                </Card>
+                {activities.length > 0
+                    ?
+                    <div>
+                        {activities.map(act => <Activity key={act.id} activity={act}/>)}
+                        <Card>
+                            <Card.Content>
+                                <MorphIcon type="plus" onClick={this.showAddForm} />
+                            </Card.Content>
+                        </Card>
+                    </div>
+                    :
+                    <Loader/>
+                }
             </div>
         )
     }

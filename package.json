@@ -36,6 +36,7 @@
     "express": "^4.16.2",
     "extract-text-webpack-plugin": "^3.0.2",
     "gifsicle": "^3.0.4",
+    "halogenium": "^2.2.3",
     "jshint-loader": "^0.8.4",
     "moment": "^2.18.1",
     "node-sass": "^4.7.2",
