@@ -9,8 +9,16 @@ import classNames from 'classnames';
 
 import {leaveClub} from '../actions/clubs';
 
+
+/**
+ * Represents a single club panel
+ * @param props
+ * @returns {XML}
+ * @constructor
+ */
 const Club = props => {
     const {id, name, cover_photo_small, sport_type, city, country} = props.club;
+    const loadingButton = props.loadingButton[`leavingClub-${id}`];
     return (
         <div>
             <img src={cover_photo_small}/>
@@ -18,7 +26,7 @@ const Club = props => {
             <p>{sport_type}</p>
             <p>{[city, ' ', country]}</p>
             <Icon name="delete" color="red" size="huge" onClick={() => props.leaveClub(id)}
-                  className={classNames({'club-leave-icon--loading' : props.loadingLeaveButton})}/>
+                  className={classNames({'club-leave-icon--loading' : loadingButton})}/>
         </div>
     )
 };
@@ -28,7 +36,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-    loadingLeaveButton : state.menuElements.loadingElements.leavingClub
+    loadingButton : state.menuElements.loadingElements
 });
 
 Club.proptypes = {

@@ -5,7 +5,7 @@ import * as actions from '../actions/types';
 
 const userDataReducerDefaultState = {
     access_token: '',
-    athlete     : {},
+    athlete     : [],
     error       : ''
 };
 

@@ -18,6 +18,10 @@ import Loader from '../Loader';
 
 class HomePage extends React.Component {
 
+    state = {
+        nothingWasFound : false
+    };
+
     /**
      * Authorization in Strava application on component mount
      * Gets authorization code and if it's already present
@@ -36,6 +40,10 @@ class HomePage extends React.Component {
         } else {
             this.props.getAthlete();
         }
+
+        setTimeout(() => {
+            if(!this.props.athlete.length) this.setState({nothingWasFound : true})
+        }, 7000)
     }
 
 
@@ -56,7 +64,7 @@ class HomePage extends React.Component {
         const elements = extractPropertiesToShow(this.props.athlete);
         return(
             <div>
-                {elements.length > 0
+                {!this.state.nothingWasFound && (elements.length > 0
                     ?
                     elements.map((el, i) =>
                         el.type === 'weight'
@@ -76,7 +84,8 @@ class HomePage extends React.Component {
                     )
                     :
                     <Loader/>
-                }
+                )}
+                {this.state.nothingWasFound && <p>Nothing was found... Try again later</p>}
             </div>
         )
     }

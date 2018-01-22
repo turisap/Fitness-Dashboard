@@ -64,7 +64,7 @@ module.exports = (env) => {
                                     sourceMap : true // source map for css in development
                                 }
                             },
-                            {
+                            /*{
                                 loader: 'postcss-loader',
                                 options: {
                                     ident: 'postcss',
@@ -74,7 +74,7 @@ module.exports = (env) => {
                                         require('cssnano')()
                                     ]
                                 }
-                            },
+                            },*/
                             {
                                 loader : 'sass-loader',
                                 options : {

@@ -29,7 +29,7 @@ export const getAthletesClubs = () => dispatch => {
  * @param id
  */
 export const leaveClub = id => dispatch => {
-    dispatch(setLoadingElement('leavingClub'));
+    dispatch(setLoadingElement(`leavingClub-${id}`));
     return axios.post(`${ENV.stravaAPI.leaveClub}/${id}/leave`, null, autHeaders)
         .then(resp => {
             if (resp.status === 200) {
@@ -40,6 +40,6 @@ export const leaveClub = id => dispatch => {
         })
         .catch(err => {
             if(window.DEBUG) console.log(err.message);
-            dispatch(unsetLoadingElement('leavingClub'));
+            dispatch(unsetLoadingElement(`leavingClub-${id}`));
         })
 };

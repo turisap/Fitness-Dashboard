@@ -26,15 +26,11 @@
     transform: rotate(360deg);
   }
 }
-.club-leave-icon--loading {
-  -webkit-animation: rotating 2s linear infinite;
-  -moz-animation: rotating 2s linear infinite;
-  -ms-animation: rotating 2s linear infinite;
-  -o-animation: rotating 2s linear infinite;
-  animation: rotating 2s linear infinite;
+.club-leave-icon--loading.icon.huge.red.delete {
+  -webkit-animation: rotating 2s ease-in-out infinite;
+  -moz-animation: rotating 2s ease-in-out infinite;
+  -ms-animation: rotating 2s ease-in-out infinite;
+  -o-animation: rotating 2s ease-in-out infinite;
+  animation: rotating 2s ease-in-out infinite;
 }
 
-.ui.image {
-  width: 100px;
-  height: 50px;
-}

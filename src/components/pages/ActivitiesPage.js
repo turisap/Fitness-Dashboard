@@ -34,6 +34,7 @@ export class Activities extends React.Component {
         "Start date" : '',
         elapsed_time : 9253,
         errors : [],
+        nothingWasFound : false
     };
 
 
@@ -45,6 +46,9 @@ export class Activities extends React.Component {
         if(!this.props.activities.length) {
             this.props.getActivities();
         }
+        setTimeout(() => {
+            if(!this.props.activities.length) this.setState({nothingWasFound : true})
+        }, 7000)
     }
 
 
@@ -103,7 +107,7 @@ export class Activities extends React.Component {
         const activities = this.props.activities;
         return (
             <div>
-                {activities.length > 0
+                {!this.state.nothingWasFound && (activities.length > 0
                     ?
                     <div>
                         {activities.map(act => <Activity key={act.id} activity={act}/>)}
@@ -115,7 +119,8 @@ export class Activities extends React.Component {
                     </div>
                     :
                     <Loader/>
-                }
+                )}
+                {this.state.nothingWasFound && <p>No activities were found.. Try again later</p>}
             </div>
         )
     }

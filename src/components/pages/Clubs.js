@@ -14,6 +14,9 @@ import Loader from '../Loader';
  */
 class Clubs extends React.Component {
 
+    state = {
+        nothingWasFound : false
+    };
 
     /**
      * Makes an AJAX request to STRAVA API if there is no clubs in the Redux store
@@ -22,18 +25,22 @@ class Clubs extends React.Component {
         if(!this.props.clubs.length){
             this.props.getClubs();
         }
+        setTimeout(() => {
+            if(!this.props.clubs.length) this.setState({nothingWasFound :true})
+        },5000)
     }
 
 
     render() {
         return(
             <div>
-                {this.props.clubs.length > 0
+                {!this.state.nothingWasFound && (this.props.clubs.length > 0
                     ?
                     this.props.clubs.map(cl => <Club key={cl.id} club={cl}/>)
                     :
                     <Loader/>
-                }
+                )}
+                {this.state.nothingWasFound && <p>No clubs were found.. Try again later</p>}
             </div>
         )
     }
