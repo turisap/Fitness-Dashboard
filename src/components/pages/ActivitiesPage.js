@@ -15,6 +15,7 @@ import {setModalOff, setModalErrors} from '../../actions/menuElements';
 import {getListOfActivities} from '../../funcs/acitvities';
 import Loader from '../Loader';
 import Validator from '../../validators/formValidator';
+import Fade from '../MountAnimation';
 
 
 
@@ -48,7 +49,7 @@ export class Activities extends React.Component {
         }
         setTimeout(() => {
             if(!this.props.activities.length) this.setState({nothingWasFound : true})
-        }, 7000)
+        }, 5000)
     }
 
 
@@ -120,7 +121,9 @@ export class Activities extends React.Component {
                     :
                     <Loader/>
                 )}
-                {this.state.nothingWasFound && <p>No activities were found.. Try again later</p>}
+                <Fade in={this.state.nothingWasFound}>
+                    <p className="ger">No activities were found.. Try again later</p>
+                </Fade>
             </div>
         )
     }

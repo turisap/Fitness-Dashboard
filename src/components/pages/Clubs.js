@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import {getAthletesClubs} from '../../actions/clubs';
 import Club from '../Club';
 import Loader from '../Loader';
+import Fade from '../MountAnimation';
 
 
 /**
@@ -40,7 +41,9 @@ class Clubs extends React.Component {
                     :
                     <Loader/>
                 )}
-                {this.state.nothingWasFound && <p>No clubs were found.. Try again later</p>}
+                <Fade in={this.state.nothingWasFound}>
+                     <p>No clubs were found.. Try again later</p>
+                </Fade>
             </div>
         )
     }

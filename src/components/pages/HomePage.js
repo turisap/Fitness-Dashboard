@@ -2,9 +2,7 @@
  * Created by HP on 16-Jan-18.
  */
 import React from 'react';
-import axios from 'axios';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom'
 
 import ENV from '../../../ENV';
 import {getAccessToken, getAthlete, updateAthlete} from '../../actions/user';
@@ -12,6 +10,7 @@ import {extractPropertiesToShow} from '../../funcs/athlete';
 import Element from '../SimpleElement';
 import WeightElement from '../WeightElement';
 import Loader from '../Loader';
+import Fade from  '../MountAnimation';
 
 
 
@@ -43,7 +42,7 @@ class HomePage extends React.Component {
 
         setTimeout(() => {
             if(!this.props.athlete.length) this.setState({nothingWasFound : true})
-        }, 7000)
+        }, 5000)
     }
 
 
@@ -64,7 +63,7 @@ class HomePage extends React.Component {
         const elements = extractPropertiesToShow(this.props.athlete);
         return(
             <div>
-                {!this.state.nothingWasFound && (elements.length > 0
+                {  !this.state.nothingWasFound && (elements.length > 0
                     ?
                     elements.map((el, i) =>
                         el.type === 'weight'
@@ -85,7 +84,11 @@ class HomePage extends React.Component {
                     :
                     <Loader/>
                 )}
-                {this.state.nothingWasFound && <p>Nothing was found... Try again later</p>}
+                <Fade in={this.state.nothingWasFound}>
+                    <div>
+                        {this.state.nothingWasFound && <p>Nothing was found... Try again later</p>}
+                    </div>
+                </Fade>
             </div>
         )
     }
