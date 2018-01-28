@@ -18,7 +18,6 @@ const AppRouter = () => (
     <div>
         <BrowserRouter>
             <div>
-                <NavBar/>
                 <Modal/>
                 <AnimatedSwitch
                     atEnter={bounceTransition.atEnter}
@@ -26,9 +25,9 @@ const AppRouter = () => (
                     atActive={bounceTransition.atActive}
                     mapStyles={mapStyles}
                     className="route-wrapper">
-                    <Route path="/" component={HomePage} exact={true}/>
-                    <Route path="/activities" component={ActivitiesPage}/>
-                    <Route path="/clubs" component={Clubs}/>
+                    <Route path="/" component={RequireAuth(HomePage)} exact={true}/>
+                    <Route path="/activities" component={RequireAuth(ActivitiesPage)}/>
+                    <Route path="/clubs" component={RequireAuth(Clubs)}/>
                 </AnimatedSwitch>
             </div>
         </BrowserRouter>

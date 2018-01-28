@@ -17,16 +17,18 @@ const transitionStyles = {
 };
 
 const Fade = ({children, in: inProp }) => (
-    <Transition in={inProp} timeout={duration}>
-        {(state) => (
-            <div style={{
-                ...defaultStyle,
-                ...transitionStyles[state]
-            }}>
-                {children}
-            </div>
-        )}
-    </Transition>
+    <div className="nothingWasFound">
+        <Transition in={inProp} timeout={duration}>
+            {(state) => (
+                <div style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state]
+                }}>
+                    {children}
+                </div>
+            )}
+        </Transition>
+    </div>
 );
 
 export default Fade;

@@ -14,23 +14,27 @@ export const extractPropertiesToShow = athlete => {
         if (listToShow.indexOf(prop) >= 0){
             switch(prop) {
                 case ('firstname'):
-                    elements.push({title: athlete[prop]});
+                    elements.push({title: athlete[prop], class : 'name'});
                     break;
                 case ('lastname'):
-                    elements[0].subtitle = athlete[prop];
+                    elements[0].title += ` ${athlete[prop]}`;
                     break;
                 case ('city'):
-                    elements[0].subtitle += athlete[prop];
+                    elements[0].subtitle = athlete[prop];
                     break;
                 case ('weight'):
                     const value = parseFloat(athlete[prop]).toFixed(2);
-                    elements.push({title: `Your weight is ${value} kg`, value , type : 'weight'});
+                    elements.push({title: `Your weight is ${value} kg`, value , class : 'weight',type:'weight'});
                     break;
                 case ('bikes'):
-                    elements.push({title: `Your main bike is ${athlete[prop][0].name}`});
+                    elements.push({title: `Your main bike is ${athlete[prop][0].name}`, class: 'bike'});
                     break;
                 case ('shoes'):
-                    elements.push({title : `Your main shoes ${athlete[prop][0].name}`, subtitle: `And you've made ${athlete[prop][0].distance} km in them`})
+                    elements.push({
+                        title : `Your main shoes ${athlete[prop][0].name}`,
+                        subtitle: `And you've made ${athlete[prop][0].distance} km in them`,
+                        class : 'shoes'
+                    })
             }
         }
     }

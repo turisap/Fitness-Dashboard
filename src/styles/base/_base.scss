@@ -1,17 +1,24 @@
 @import "./mixins";
+@import "./settings";
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700|Roboto+Slab:400,700');
+
 
 html {
   font-size: 62.5%;
 }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  background: $body!important;
+  font-family: 'PT Sans', sans-serif!important;
   font-size: $m-size;
   overflow-x: hidden;
+  max-height: 100vh;
+  overflow:hidden;
 }
 
 // prevents accidental overflow
 img, embed, video, object {
+  margin-top: 5px;
   max-width: 100%;
 }
 
@@ -27,6 +34,43 @@ img, embed, video, object {
   position: absolute;
 }
 
+.wrapper {
+  display:grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 3fr auto ;
+  width: 100vw;
+  height: 100vh;
+  align-items:center;
+  justify-items: center;
+}
 
+.nothingWasFound {
+  @include display-flex(center, column);
+  color:white;
+  font-size: $l-size;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+}
 
+@media (max-width: 1200px) {
+  .wrapper {
+    grid-template-columns: 1fr 4fr 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    grid-template-columns: 1fr 5fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    grid-template-columns: 10px 1fr 10px;
+  }
+  .nothingWasFound {
+    font-size: $s-size;;
+  }
+
+}
 

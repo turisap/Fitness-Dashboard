@@ -4,6 +4,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import NavBar from '../NavBar';
+import Footer from '../Footer';
+
 
 export default (ComposedComponent) => {
     class Authentication extends React.Component {
@@ -11,11 +14,11 @@ export default (ComposedComponent) => {
         /**
          * If user isn't authenticated, redirect him on component mount
          */
-        componentWillMount() {
+        /*componentWillMount() {
             if(!this.props.authenticated) {
                 this.props.history.push('/');
             }
-        }
+        }*/
 
 
         /**
@@ -23,7 +26,13 @@ export default (ComposedComponent) => {
          * @returns {XML}
          */
         render() {
-            return <ComposedComponent {...this.props}/>
+            return (
+                <div className="wrapper">
+                    <NavBar/>
+                    <ComposedComponent {...this.props}/>
+                    <Footer/>
+                </div>
+            )
         }
     }
 

@@ -49,8 +49,9 @@ class WeightElement extends React.Component {
 
     render () {
         return (
-            <div className={classNames('dashboard-element', {'square' : this.props.square})} style={{border: 'red 1px solid'}}>
-                <SimpleElement {...this.props}/>
+            <div className={classNames('dashboard-element', this.props.extraClass)}>
+                <p className="dashboard-element__text">{this.props.title}</p>
+                <p className="dashboard-element__text">{this.props.subtitle}</p>
                 <Input
                     loading={this.props.loadingWeight}
                     onChange={this.changeMyWeight}
