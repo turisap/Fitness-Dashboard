@@ -7,7 +7,7 @@ import { GridLoader } from 'halogenium';
 
 const Loader = props => {
     return (
-        <GridLoader color="white" size="16px" margin="4px"/>
+        <GridLoader color="#ccc" size="16px" margin="4px"/>
     )
 };
 

@@ -2,7 +2,7 @@
  * Created by HP on 22-Jan-18.
  */
 import React from 'react';
-import { Transition } from 'react-transition-group'
+import { Transition, CSSTransition } from 'react-transition-group'
 
 const duration = 300;
 
@@ -29,6 +29,16 @@ const Fade = ({children, in: inProp }) => (
             )}
         </Transition>
     </div>
+);
+
+export const Animation = ({ children, ...props }) => (
+    <CSSTransition
+        {...props}
+        timeout={1000}
+        classNames="fade"
+    >
+        {children}
+    </CSSTransition>
 );
 
 export default Fade;

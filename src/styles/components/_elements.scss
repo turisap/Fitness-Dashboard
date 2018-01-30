@@ -2,13 +2,13 @@
 @import '../base/mixins';
 
 .dashboard-element {
-  @include shadow(2px, 2px, 2px, 2px, darken($athlete-background, 5%));
+  /*@include shadow(2px, 2px, 2px, 2px, darken($athlete-background, 5%));*/
   @include display-flex(center, column);
   justify-content:center;
   border-radius: 5px;
   background: $athlete-background;
   padding: 10px;
-  border: 1px solid darken(white, 3%);
+  border: 1px solid darken(white, 5%);
 }
 
 
@@ -23,7 +23,15 @@
   text-align:center;
   font-size: 2vw;
   font-weight: 200;
-  color: #898422;
+  color: $text-on-white;
+}
+
+.dashboard-element__change {
+  display: flex;
+  justify-content:center;
+  img {
+    width: 50%;
+  }
 }
 
 .name {

@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  background: $body!important;
+  background: $body;
   font-family: 'PT Sans', sans-serif!important;
   font-size: $m-size;
   overflow-x: hidden;
@@ -37,7 +37,7 @@ img, embed, video, object {
 .wrapper {
   display:grid;
   grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: 1fr 3fr auto ;
+  grid-template-rows: 1fr 3fr 1fr ;
   width: 100vw;
   height: 100vh;
   align-items:center;
@@ -46,6 +46,7 @@ img, embed, video, object {
 
 .nothingWasFound {
   @include display-flex(center, column);
+  z-index: -999;
   color:white;
   font-size: $l-size;
   grid-column: 1 / -1;

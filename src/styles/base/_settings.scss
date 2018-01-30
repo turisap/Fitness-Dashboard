@@ -1,8 +1,8 @@
 // COLORS
-$body : rgb(0, 0, 0);
-$text-on-white: rgba(0, 0, 0, 0.65);
+$body : white;
+$text-on-white: #333;
 $error : #d40f00;
-$athlete-background : #eeeeee;
+$athlete-background : darken(white, 2%);
 
 //SPACING AND SIZING
 $xs-size: 0.6rem;

@@ -13,6 +13,7 @@
 }
 
 
+
 @media (max-width: 900px) {
   .home__elements {
     grid-gap: 10px;
@@ -22,10 +23,8 @@
 @media (max-width: 500px) {
   .home__elements {
     grid-template-areas:
-            'name'
-            'bike'
-            'shoes'
-            'weight'
-            'weight';
+            'name bike'
+            'shoes weight';
+    grid-auto-rows: 1fr;
   }
 }

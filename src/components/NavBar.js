@@ -2,7 +2,7 @@
  * Created by HP on 17-Jan-18.
  */
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 
 export default props => (
     <div className="navbar">

@@ -28,9 +28,7 @@ export default (ComposedComponent) => {
         render() {
             return (
                 <div className="wrapper">
-                    <NavBar/>
                     <ComposedComponent {...this.props}/>
-                    <Footer/>
                 </div>
             )
         }

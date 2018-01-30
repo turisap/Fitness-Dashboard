@@ -7,9 +7,9 @@ import { Input } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 import Validator from '../validators/InputDataValidator';
-import SimpleElement from './SimpleElement';
 import {updateAthlete} from '../actions/user';
 import {setLoadingElement, unsetLoadingElement, setModalOff} from '../actions/menuElements';
+import Fade, {Animation} from './MountAnimation';
 import {changingWeightModalMessage} from '../funcs/athlete';
 
 
@@ -17,6 +17,7 @@ class WeightElement extends React.Component {
 
     state = {
         submissionErrors : [],
+        displayInput : false,
     };
 
     /**
@@ -47,17 +48,28 @@ class WeightElement extends React.Component {
     };
 
 
+
+
     render () {
         return (
             <div className={classNames('dashboard-element', this.props.extraClass)}>
                 <p className="dashboard-element__text">{this.props.title}</p>
                 <p className="dashboard-element__text">{this.props.subtitle}</p>
-                <Input
-                    loading={this.props.loadingWeight}
-                    onChange={this.changeMyWeight}
-                    placeholder='Have lost sth?'
-                    error={!!this.state.submissionErrors.length}
-                />
+                    {this.state.displayInput
+                        ?
+                        <Animation in={this.state.displayInput}>
+                            <Input
+                                loading={this.props.loadingWeight}
+                                onChange={this.changeMyWeight}
+                                placeholder='Have lost sth?'
+                                error={!!this.state.submissionErrors.length}
+                            />
+                        </Animation>
+                        :
+                        <a className="dashboard-element__change" onClick={() => this.setState({displayInput: true})}>
+                            <img src={require('../assets/img/change.png')} />
+                        </a>
+                    }
                 {this.state.submissionErrors.length > 0 && this.state.submissionErrors.map(err => <p key={err}>{err}</p>)}
             </div>
         )
