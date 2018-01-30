@@ -15,7 +15,7 @@ import { emptyModal } from '../actions/menuElements';
  * @constructor
  */
 const Modal = props => (
-    <Rodal visible={!!props.modalContent} onClose={() => {
+    <Rodal className="modal__main" visible={!!props.modalContent} onClose={() => {
         if(typeof(window.MODAL_CALLBACK) === 'function') {
             window.MODAL_CALLBACK();
             window.MODAL_CALLBACK = null;

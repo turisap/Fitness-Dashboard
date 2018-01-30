@@ -8,10 +8,7 @@ import { Card, Icon, Image } from 'semantic-ui-react';
 const Activity = props => {
     const {id, name, type, description, average_speed, max_speed, location_country} = props.activity;
     return (
-        <Card>
-            <Image src={require('../assets/img/yoga.png')} />
-            <Image src={require('../assets/img/swim.png')} />
-            <Image src={require('../assets/img/alpineski.png')} />
+        <Card className="activities__element">
             <Card.Content>
                 <Card.Header>{name}</Card.Header>
                 <Card.Meta>{type}</Card.Meta>

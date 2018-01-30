@@ -49,7 +49,7 @@ export class Activities extends React.Component {
         }
         setTimeout(() => {
             if(!this.props.activities.length) this.setState({nothingWasFound : true})
-        }, 5000)
+        }, 55000)
     }
 
 
@@ -60,12 +60,12 @@ export class Activities extends React.Component {
      */
     showAddForm = e => {
         const content = (
-            <form onSubmit={this.addActivity}>
+            <form onSubmit={this.addActivity} className="modal__add-activity">
                 <Input onChange={e => this.setState({name: e.target.value})} placeholder='Name..' />
                 <Input onChange={e => this.setState({description: e.target.value})} placeholder='Description..' />
-                <Dropdown onChange={(e, { value }) => this.setState({type : value.toLowerCase()})} placeholder='Type of activity' options={getListOfActivities()} />
+                <Dropdown className="modal__type" onChange={(e, { value }) => this.setState({type : value.toLowerCase()})} placeholder='Type of activity' options={getListOfActivities()} />
                 <DatePicker onChange={e => this.setState({"Start date" : e.format('YYYY-MM-DDTHH:mm:ss')})} defaultDate={moment()}/>
-                {this.state.errors}
+                <p className="error">{this.state.errors.join(' | ')}</p>
                 <Button type="submit" default loading={this.state.loadingButton}>Add Activity</Button>
             </form>
         );
@@ -107,14 +107,14 @@ export class Activities extends React.Component {
     render() {
         const activities = this.props.activities;
         return (
-            <div>
+            <div className="activities__page">
                 {!this.state.nothingWasFound && (activities.length > 0
                     ?
                     <div>
                         {activities.map(act => <Activity key={act.id} activity={act}/>)}
                         <Card>
                             <Card.Content>
-                                <MorphIcon type="plus" onClick={this.showAddForm} />
+                                <MorphIcon type="plus" onClick={this.showAddForm} className="activities__add"/>
                             </Card.Content>
                         </Card>
                     </div>
@@ -122,7 +122,7 @@ export class Activities extends React.Component {
                     <Loader/>
                 )}
                 <Fade in={this.state.nothingWasFound}>
-                    <p className="ger">No activities were found.. Try again later</p>
+                    <p className="nothingWasFound">No activities were found.. Try again later</p>
                 </Fade>
             </div>
         )
