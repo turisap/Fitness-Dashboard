@@ -11,7 +11,7 @@ const ENV = {
         userId : 27288736,
         clientSecret : 'fe6516086d6c0893b2de715069861ca7bd2f23d4',
         publicAccessToken : 'f6d620252df82826e071a301ea45625b919fb136',
-        redirectURL : '',
+        redirectURL : 'https://fitness-dashboard.herokuapp.com/',
         activitiesBaseEndPoint : 'https://www.strava.com/api/v3/activities?',
         athleteActivitiesBaseEndPoint : 'https://www.strava.com/api/v3/athlete/activities?',
         athleteClubsBaseEndPoint      : 'https://www.strava.com/api/v3/athlete/clubs',
