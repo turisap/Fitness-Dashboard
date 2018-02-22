@@ -1,0 +1,36 @@
+@import '../base/settings';
+@import '../base/mixins';
+
+.navbar {
+  @include display-flex(center);
+  position:relative;
+  top: 10vh;
+  left: 20%;
+  width: 60%;
+  grid-column: 2;
+  grid-row: 1;
+  z-index: 99;
+  border: $grey-border;
+}
+
+.navbar__link {
+  padding: 10px 20px;
+  border-right: $grey-border;
+  flex-grow:1;
+  font-size: $m-size;
+  text-align:center;
+  transition: all 0.2s;
+  color: $text-on-white;
+}
+
+.navbar__link:hover {
+  background: $athlete-background;
+  color: $text-on-white;
+}
+
+@media (max-width: 500px) {
+  .navbar__link {
+    font-size: $s-size;
+    padding: 5px;
+  }
+}

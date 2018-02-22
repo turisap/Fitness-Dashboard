@@ -1,0 +1,37 @@
+@import '../base/settings';
+@import '../base/mixins';
+
+.footer {
+  position:absolute;
+  bottom: 0;
+  right: 0;
+  left:0;
+  grid-row: 3;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: $body;
+  align-self: stretch;
+  justify-self:stretch;
+  border-top: $grey-border;
+  padding: 10px;
+}
+
+
+.footer__element {
+  @include display-flex(center);
+  color:$text-on-white;
+}
+
+@media (max-width: 500px) {
+  .footer__element {
+    font-size: $xs-size!important;
+    i:before {
+      display:none;
+    }
+  }
+  .footer {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+  }
+}

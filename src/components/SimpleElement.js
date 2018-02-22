@@ -7,9 +7,9 @@ import classNames from 'classnames';
 
 const Element = props => {
     return (
-        <div className={classNames('dashboard-element', {'square' : props.square})} style={{border: 'red 1px solid'}}>
-            <p>{props.title}</p>
-            <p>{props.subtitle}</p>
+        <div className={classNames('dashboard-element', props.extraClass)}>
+            <p className="dashboard-element__text">{props.title}</p>
+            <p className="dashboard-element__text">{props.subtitle}</p>
         </div>
     )
 };

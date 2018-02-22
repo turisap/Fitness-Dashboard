@@ -1,0 +1,15 @@
+@import '../base/mixins';
+
+.modal__add-activity {
+  @include display-flex($flex-direction:column);
+  & > * {
+    margin-bottom: 5px;
+  }
+}
+
+.modal__type {
+  width: 100%;
+  & > div {
+    width: 90%;
+  }
+}

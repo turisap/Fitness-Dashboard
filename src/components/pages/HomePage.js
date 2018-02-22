@@ -41,8 +41,8 @@ class HomePage extends React.Component {
         }
 
         setTimeout(() => {
-            if(!this.props.athlete.length) this.setState({nothingWasFound : true})
-        }, 5000)
+            if(!this.props.athlete.id) this.setState({nothingWasFound : true})
+        }, 8000)
     }
 
 
@@ -62,27 +62,31 @@ class HomePage extends React.Component {
     render() {
         const elements = extractPropertiesToShow(this.props.athlete);
         return(
-            <div>
+            <div className="home__elements">
                 {  !this.state.nothingWasFound && (elements.length > 0
-                    ?
-                    elements.map((el, i) =>
-                        el.type === 'weight'
-                            ?
-                            <WeightElement
-                                key={i}
-                                title={el.title}
-                                value={el.value}
-                                subtitle={el.subtitle}
-                            />
-                            :
-                            <Element
-                                key={i}
-                                title={el.title}
-                                subtitle={el.subtitle}
-                            />
-                    )
-                    :
-                    <Loader/>
+                        ?
+                        elements.map((el, i) =>
+                            el.type === 'weight'
+                                ?
+                                <WeightElement
+                                    key={i}
+                                    title={el.title}
+                                    value={el.value}
+                                    subtitle={el.subtitle}
+                                    extraClass={el.class}
+                                />
+                                :
+                                <Element
+                                    key={i}
+                                    title={el.title}
+                                    subtitle={el.subtitle}
+                                    extraClass={el.class}
+                                />
+                        )
+                        :
+                        <div className="nothingWasFound">
+                            <Loader/>
+                        </div>
                 )}
                 <Fade in={this.state.nothingWasFound}>
                     <div>

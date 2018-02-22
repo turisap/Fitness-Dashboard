@@ -1,0 +1,31 @@
+.activities__page {
+  grid-column: 2;
+  grid-row: 2;
+  & > div{
+    display: grid;
+    grid-gap: 20px;
+    align-self:stretch;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 33%;
+    justify-items:start;
+    align-items:center;
+  }
+}
+
+.activities__add:hover {
+  cursor:pointer;
+}
+
+
+@media (max-width: 970px) {
+  .activities__page > div {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .activities__page > div {
+    grid-template-columns: 1fr;
+  }
+}
+

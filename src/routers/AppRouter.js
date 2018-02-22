@@ -10,6 +10,7 @@ import HomePage from '../components/pages/HomePage';
 import ActivitiesPage from '../components/pages/ActivitiesPage';
 import Clubs from '../components/pages/Clubs'
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import Modal from '../components/Modal';
 import RequireAuth from '../components/auth/RequireAuthHOC';
 
@@ -18,18 +19,19 @@ const AppRouter = () => (
     <div>
         <BrowserRouter>
             <div>
-                <NavBar/>
                 <Modal/>
+                <NavBar/>
                 <AnimatedSwitch
                     atEnter={bounceTransition.atEnter}
                     atLeave={bounceTransition.atLeave}
                     atActive={bounceTransition.atActive}
                     mapStyles={mapStyles}
                     className="route-wrapper">
-                    <Route path="/" component={HomePage} exact={true}/>
-                    <Route path="/activities" component={ActivitiesPage}/>
-                    <Route path="/clubs" component={Clubs}/>
+                    <Route path="/" component={RequireAuth(HomePage)} exact={true}/>
+                    <Route path="/activities" component={RequireAuth(ActivitiesPage)}/>
+                    <Route path="/clubs" component={RequireAuth(Clubs)}/>
                 </AnimatedSwitch>
+                <Footer/>
             </div>
         </BrowserRouter>
     </div>
