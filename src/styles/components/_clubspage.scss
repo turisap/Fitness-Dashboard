@@ -1,0 +1,19 @@
+@import "../base/settings";
+@import "../base/layout";
+
+.clubs__page {
+  grid-column:2;
+  grid-row:2;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-rows: 33%;
+  grid-gap: 20px;
+}
+
+
+@media (max-width: 800px) {
+  .clubs__page {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,14 @@
+.activities__element:after {
+  display:none;
+}
+
+.activities__element {
+  height: 150px;
+  margin: 0!important;
+}
+
+@media (max-width: 970px) {
+  .activities__element {
+    height: 130px;
+  }
+}
