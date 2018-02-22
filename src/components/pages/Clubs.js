@@ -34,7 +34,7 @@ class Clubs extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="clubs__page">
                 {!this.state.nothingWasFound && (this.props.clubs.length > 0
                     ?
                     this.props.clubs.map(cl => <Club key={cl.id} club={cl}/>)
@@ -52,11 +52,11 @@ class Clubs extends React.Component {
 
 
 const mapDispatchToProps = dispatch => ({
-    getClubs : () => dispatch(getAthletesClubs()),
+    getClubs : () => dispatch(getAthletesClubs())
 });
 
 const mapStateToProps = state => ({
-    clubs : state.clubs.athleteClubs,
+    clubs : state.clubs.athleteClubs
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Clubs)
